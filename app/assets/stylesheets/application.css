@@ -28,6 +28,9 @@ body {
 li {
   list-style: none;
 }
+img {
+  border-radius: 10px;
+}
 .main-header {
   position: fixed;
   width: 100%;
@@ -68,7 +71,6 @@ li {
   min-width: 750px;
   width: 100%;
   height: auto;
-  background: #d5fffa;
   padding: 10px;
 }
 .main-footer {
@@ -107,4 +109,45 @@ input.submit {
   color: #fff;
   border-radius: 15px;
   border-style: none;
+}
+
+
+/* ユーザー一覧のサムネイル */
+ul.freelancer-list {
+ display: flex;
+ flex-wrap: wrap;
+ width: 100%;
+}
+ul.freelancer-list > li {
+  margin: 5px;
+  width: 30%;
+  text-align: center;
+  border: 5px solid #90b6d6;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 5px;
+}
+.profile ul {
+  padding: 10px 0px;
+}
+.profile ul .name {
+  color: #FF0000;
+}
+.skill {
+  display: inline-block;
+}
+div.skill {
+  margin: 3px 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+div.skill > label {
+  float: left;
+  font-size: 3px;
+  color: #FFF;
+  margin: 0px 2px;
+  padding: 0px 5px;
+  background: #2b3ed6;
+  border-radius: 8px;
 }
