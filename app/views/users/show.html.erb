@@ -27,19 +27,63 @@
           <table>
             <tr>
               <td class="sns"><%= image_tag 'twitter.png', :class => 'sns-icon', :size =>'20x20' %></td>
-              <td class="sns-id">jonconan</td>
+              <td class="sns-id"><%= link_to 'jonconan4869', 'https://twitter.com/'+'jonconan4869', target: :_blank %></td>
             </tr>
             <tr>
               <td class="sns"><%= image_tag 'facebook.png', :class => 'sns-icon', :size =>'20x20' %></td>
-              <td class="sns-id">jonconan</td>
+              <td class="sns-id"><%= link_to 'jonconan4869', 'https://www.facebook.com/'+'jonconan4869', target: :_blank %></td>
             </tr>
             <tr>
               <td class="sns"><%= image_tag 'github.png', :class => 'sns-icon', :size =>'20x20' %></td>
-              <td class="sns-id">jonconan</td>
+              <td class="sns-id"><%= link_to 'jonconan', 'https://github.com/'+'jonconan', target: :_blank %></td>
             </tr>
           </table>
         </td>
       </tr>
     </table>
   </li>
+</ul>
+
+<ul class="freelancer-profile">
+  <li><a href="#" class="btn-square-slant">メッセージを送る</a></li>
+  <li><a href="#" class="btn-square-slant">友達登録をする</a></li>
+</ul>
+
+<div class="profile-contents">
+  <div class="tabs">
+    <input id="all" type="radio" name="tab_item" checked>
+    <label class="tab_item" for="all">職歴・経験</label>
+    <input id="programming" type="radio" name="tab_item">
+    <label class="tab_item" for="programming">スキル</label>
+    <input id="design" type="radio" name="tab_item">
+    <label class="tab_item" for="design">働き方</label>
+    <input id="design2" type="radio" name="tab_item">
+    <label class="tab_item" for="design2">叶えられること</label>
+
+    <div class="tab_content" id="all_content">
+      <div class="tab_content_description">
+        <p class="c-txtsp">職務経歴をずらずらーーーっとなんかうまい感じに</p>
+      </div>
+    </div>
+    <div class="tab_content" id="programming_content">
+      <div class="tab_content_description">
+        <p class="c-txtsp">各言語・環境についての経験年数情報をずらずらと</p>
+      </div>
+    </div>
+    <div class="tab_content" id="design_content">
+      <div class="tab_content_description">
+        <p class="c-txtsp">こういう働き方したいぜ！っていのを書く　転職要望などもあれば</p>
+      </div>
+    </div>
+    <div class="tab_content" id="design2_content">
+      <div class="tab_content_description">
+        <p class="c-txtsp">この人に仕事を頼むと、こういうことを実現できますよ！ってことを書く</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ul class="freelancer-profile">
+  <li><a href="#" class="btn-square-slant">メッセージを送る</a></li>
+  <li><a href="#" class="btn-square-slant">友達登録をする</a></li>
 </ul>
