@@ -7,7 +7,7 @@
     </div>
     <div class="profile">
       <ul>
-        <li class="name">ジョン</li>
+        <li class="name"><%= link_to 'ジョン', 'user/1' %></li>
         <li>
         </li>
         <li class="price">4,000円/h〜</li>
@@ -18,17 +18,24 @@
           <label>javascript</label>
           <label>css</label>
         </div>
+        <ul class="review-list">
+          <li><%= image_tag 'friends.png', :class => 'icon', :size =>'16x16' %> 10</li>
+          <li><%= image_tag 'good.png', :class => 'icon', :size =>'16x16' %> 20</li>
+          <li><%= image_tag 'comment.png', :class => 'icon', :size =>'16x16' %>  3</li>
+        </ul>
       </ul>
     </div>
   </li>
 
   <li>
     <div class="thumbnail">
-      <%= image_tag '31529208.png', :size =>'160x160' %>
+      <a href="user/1">
+        <%= image_tag '31529208.png', :size =>'160x160' %>
+      </a>
     </div>
     <div class="profile">
       <ul>
-        <li class="name">ジョン</li>
+        <li class="name"><%= link_to 'ジョン', 'user/1' %></li>
         <li>
         </li>
         <li class="price">4,000円/h〜</li>
@@ -39,27 +46,11 @@
           <label>javascript</label>
           <label>css</label>
         </div>
-      </ul>
-    </div>
-  </li>
-
-  <li>
-    <div class="thumbnail">
-      <%= image_tag 'woman.png', :size =>'160x160' %>
-    </div>
-    <div class="profile">
-      <ul>
-        <li class="name">ジョン</li>
-        <li>
-        </li>
-        <li class="price">4,000円/h〜</li>
-        <li class="start">稼働可能時期：10月〜</li>
-        <div class="skill">
-          <label>Ruby on Rails</label>
-          <label>PHP</label>
-          <label>javascript</label>
-          <label>css</label>
-        </div>
+        <ul class="review-list">
+          <li><%= image_tag 'friends.png', :class => 'icon', :size =>'16x16' %> 10</li>
+          <li><%= image_tag 'good.png', :class => 'icon', :size =>'16x16' %> 20</li>
+          <li><%= image_tag 'comment.png', :class => 'icon', :size =>'16x16' %>  3</li>
+        </ul>
       </ul>
     </div>
   </li>
@@ -81,6 +72,37 @@
           <label>javascript</label>
           <label>css</label>
         </div>
+        <ul class="review-list">
+          <li><%= image_tag 'friends.png', :class => 'icon', :size =>'16x16' %> 10</li>
+          <li><%= image_tag 'good.png', :class => 'icon', :size =>'16x16' %> 20</li>
+          <li><%= image_tag 'comment.png', :class => 'icon', :size =>'16x16' %>  3</li>
+        </ul>
+      </ul>
+    </div>
+  </li>
+
+  <li>
+    <div class="thumbnail">
+      <%= image_tag 'woman.png', :size =>'160x160' %>
+    </div>
+    <div class="profile">
+      <ul>
+        <li class="name">ジョン</li>
+        <li>
+        </li>
+        <li class="price">4,000円/h〜</li>
+        <li class="start">稼働可能時期：10月〜</li>
+        <div class="skill">
+          <label>Ruby on Rails</label>
+          <label>PHP</label>
+          <label>javascript</label>
+          <label>css</label>
+        </div>
+        <ul class="review-list">
+          <li><%= image_tag 'friends.png', :class => 'icon', :size =>'16x16' %> 10</li>
+          <li><%= image_tag 'good.png', :class => 'icon', :size =>'16x16' %> 20</li>
+          <li><%= image_tag 'comment.png', :class => 'icon', :size =>'16x16' %>  3</li>
+        </ul>
       </ul>
     </div>
   </li>
@@ -102,6 +124,11 @@
           <label>javascript</label>
           <label>css</label>
         </div>
+        <ul class="review-list">
+          <li><%= image_tag 'friends.png', :class => 'icon', :size =>'16x16' %> 10</li>
+          <li><%= image_tag 'good.png', :class => 'icon', :size =>'16x16' %> 20</li>
+          <li><%= image_tag 'comment.png', :class => 'icon', :size =>'16x16' %>  3</li>
+        </ul>
       </ul>
     </div>
   </li>
@@ -123,6 +150,37 @@
           <label>javascript</label>
           <label>css</label>
         </div>
+        <ul class="review-list">
+          <li><%= image_tag 'friends.png', :class => 'icon', :size =>'16x16' %> 10</li>
+          <li><%= image_tag 'good.png', :class => 'icon', :size =>'16x16' %> 20</li>
+          <li><%= image_tag 'comment.png', :class => 'icon', :size =>'16x16' %>  3</li>
+        </ul>
+      </ul>
+    </div>
+  </li>
+
+  <li>
+    <div class="thumbnail">
+      <%= image_tag 'woman.png', :size =>'160x160' %>
+    </div>
+    <div class="profile">
+      <ul>
+        <li class="name">ジョン</li>
+        <li>
+        </li>
+        <li class="price">4,000円/h〜</li>
+        <li class="start">稼働可能時期：10月〜</li>
+        <div class="skill">
+          <label>Ruby on Rails</label>
+          <label>PHP</label>
+          <label>javascript</label>
+          <label>css</label>
+        </div>
+        <ul class="review-list">
+          <li><%= image_tag 'friends.png', :class => 'icon', :size =>'16x16' %> 10</li>
+          <li><%= image_tag 'good.png', :class => 'icon', :size =>'16x16' %> 20</li>
+          <li><%= image_tag 'comment.png', :class => 'icon', :size =>'16x16' %>  3</li>
+        </ul>
       </ul>
     </div>
   </li>
@@ -144,6 +202,37 @@
           <label>javascript</label>
           <label>css</label>
         </div>
+        <ul class="review-list">
+          <li><%= image_tag 'friends.png', :class => 'icon', :size =>'16x16' %> 10</li>
+          <li><%= image_tag 'good.png', :class => 'icon', :size =>'16x16' %> 20</li>
+          <li><%= image_tag 'comment.png', :class => 'icon', :size =>'16x16' %>  3</li>
+        </ul>
+      </ul>
+    </div>
+  </li>
+
+  <li>
+    <div class="thumbnail">
+      <%= image_tag 'woman.png', :size =>'160x160' %>
+    </div>
+    <div class="profile">
+      <ul>
+        <li class="name">ジョン</li>
+        <li>
+        </li>
+        <li class="price">4,000円/h〜</li>
+        <li class="start">稼働可能時期：10月〜</li>
+        <div class="skill">
+          <label>Ruby on Rails</label>
+          <label>PHP</label>
+          <label>javascript</label>
+          <label>css</label>
+        </div>
+        <ul class="review-list">
+          <li><%= image_tag 'friends.png', :class => 'icon', :size =>'16x16' %> 10</li>
+          <li><%= image_tag 'good.png', :class => 'icon', :size =>'16x16' %> 20</li>
+          <li><%= image_tag 'comment.png', :class => 'icon', :size =>'16x16' %>  3</li>
+        </ul>
       </ul>
     </div>
   </li>
@@ -165,6 +254,11 @@
           <label>javascript</label>
           <label>css</label>
         </div>
+        <ul class="review-list">
+          <li><%= image_tag 'friends.png', :class => 'icon', :size =>'16x16' %> 10</li>
+          <li><%= image_tag 'good.png', :class => 'icon', :size =>'16x16' %> 20</li>
+          <li><%= image_tag 'comment.png', :class => 'icon', :size =>'16x16' %>  3</li>
+        </ul>
       </ul>
     </div>
   </li>
@@ -186,6 +280,11 @@
           <label>javascript</label>
           <label>css</label>
         </div>
+        <ul class="review-list">
+          <li><%= image_tag 'friends.png', :class => 'icon', :size =>'16x16' %> 10</li>
+          <li><%= image_tag 'good.png', :class => 'icon', :size =>'16x16' %> 20</li>
+          <li><%= image_tag 'comment.png', :class => 'icon', :size =>'16x16' %>  3</li>
+        </ul>
       </ul>
     </div>
   </li>
@@ -207,9 +306,12 @@
           <label>javascript</label>
           <label>css</label>
         </div>
+        <ul class="review-list">
+          <li><%= image_tag 'friends.png', :class => 'icon', :size =>'16x16' %> 10</li>
+          <li><%= image_tag 'good.png', :class => 'icon', :size =>'16x16' %> 20</li>
+          <li><%= image_tag 'comment.png', :class => 'icon', :size =>'16x16' %>  3</li>
+        </ul>
       </ul>
     </div>
   </li>
-
-
 </ul>

@@ -1,3 +1,96 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* ユーザー一覧のサムネイル */
+ul.freelancer-list {
+ display: flex;
+ flex-wrap: wrap;
+ width: 100%;
+}
+ul.freelancer-list > li {
+  margin: 5px;
+  width: 30%;
+  max-width: 300px;
+  text-align: center;
+  border: 5px solid #90b6d6;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 5px;
+}
+.profile ul {
+  padding: 10px 0px;
+}
+.profile ul .name {
+  color: #FF0000;
+}
+.skill {
+  display: inline-block;
+}
+div.skill {
+  margin: 3px 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+div.skill > label {
+  float: left;
+  font-size: 3px;
+  color: #FFF;
+  margin: 0px 2px;
+  padding: 0px 5px;
+  background: #2b3ed6;
+  border-radius: 8px;
+}
+ul.review-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 10px 0 0 0;
+}
+ul.review-list > li {
+  width: 33%;
+  box-sizing: border-box;
+}
+
+/* 個人ページ */
+ul.freelancer-profile {
+ display: flex;
+ flex-wrap: wrap;
+ width: 100%;
+}
+ul.freelancer-profile > li {
+  margin: 5px;
+  width: 48%;
+  text-align: center;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 5px;
+}
+table {
+  width: 100%;
+}
+tr {
+  height: 60px;
+}
+th {
+  background: #DDD;
+  width: 40%;
+  max-width: 250px;
+}
+td {
+  background: #90b6d6;
+}
+.sns-icon {
+  border-radius: 0px;
+  margin: 0 10px;
+  display: flex;
+}
+.sns {
+  width: 10%;
+  max-width: 50px;
+}
+.sns-id {
+  text-align: left;
+  padding: 0 10px;
+}
