@@ -57,7 +57,6 @@ ul.review-list > li {
 ul.freelancer-profile {
  display: flex;
  flex-wrap: wrap;
- width: 100%;
 }
 ul.freelancer-profile > li {
   margin: 5px;
@@ -102,15 +101,15 @@ td {
 }
 /*タブ切り替え全体のスタイル*/
 .tabs {
-  margin-top: 50px;
+  width: 90%;
   padding-bottom: 40px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  margin: 0 auto;
+  margin: 50px auto;
 }
 
 /*タブのスタイル*/
 .tab_item {
-  width: calc(100%/4);
+  width: calc(100%/5);
   height: 50px;
   border-bottom: 3px solid #5ab4bd;
   line-height: 50px;
@@ -143,7 +142,8 @@ input[name="tab_item"] {
 #all:checked ~ #all_content,
 #programming:checked ~ #programming_content,
 #design:checked ~ #design_content,
-#design2:checked ~ #design2_content {
+#design2:checked ~ #design2_content,
+#design3:checked ~ #design3_content {
   display: block;
 }
 
