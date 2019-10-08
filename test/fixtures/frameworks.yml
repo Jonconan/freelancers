@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  language_id: 
+  name: MyString
+  del_flg: false
+
+two:
+  language_id: 
+  name: MyString
+  del_flg: false
