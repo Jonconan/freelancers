@@ -111,3 +111,7 @@ Language.create(:name => 'Vue.js')
 Language.create(:name => 'WordPress')
 Language.create(:name => '機械学習')
 Language.create(:name => '要件定義')
+
+Workstyle.create(:name => 'フルリモート')
+Workstyle.create(:name => '一部リモート')
+Workstyle.create(:name => '常駐')
