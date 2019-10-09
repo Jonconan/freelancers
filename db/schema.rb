@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_08_132634) do
+ActiveRecord::Schema.define(version: 2019_10_08_161759) do
 
   create_table "languages", force: :cascade do |t|
     t.string "name", null: false
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(version: 2019_10_08_132634) do
   end
 
   create_table "regions", force: :cascade do |t|
+    t.string "name", null: false
+    t.boolean "del_flg", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "workstyles", force: :cascade do |t|
     t.string "name", null: false
     t.boolean "del_flg", default: false, null: false
     t.datetime "created_at", null: false
