@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_10_10_045242) do
     t.string "area"
     t.date "birthday", null: false
     t.integer "display_type", default: 0, null: false
-    t.integer "status_id", default: 0, null: false
+    t.integer "status_id"
     t.string "twitter_id"
     t.string "facebook_id"
     t.string "github_id"

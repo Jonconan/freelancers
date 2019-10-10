@@ -33,17 +33,21 @@
 
   <tr>
     <th class="create_user"><%= form.label :birthday, '生年月日' %><must>*</must></th>
-    <td><%= form.date_select :birthday %></td>
+    <td>
+      <%= form.select :birthday_year, @years %>年
+      <%= form.select :birthday_month, @months %>月
+      <%= form.select :birthday_day, @days %>日
+    </td>
   </tr>
 
   <tr>
-    <th class="create_user"><%= form.label :is_display_birthday, '生年月日の表示形式' %><must>*</must></th>
-    <td><%= form.check_box :is_display_birthday %></td>
+    <th class="create_user"><%= form.label :display_type, '生年月日の表示形式' %><must>*</must></th>
+    <td><%= form.select :display_type, @display_type, {}, { class: 'large_select'} %></td>
   </tr>
 
   <tr>
     <th class="create_user"><%= form.label :status_id, '現在の稼働ステータス' %></th>
-    <td><%= form.text_field :status_id, class: 'input_form', placeholder: 'hoge' %></td>
+    <td><%= form.select :status_id, @status, {include_blank: true}, { class: 'large_select'} %></td>
   </tr>
 
   <tr>

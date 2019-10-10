@@ -22,9 +22,6 @@
         <th>誕生日</th><td>1991年 10月 20日 (28歳)</td>
       </tr>
       <tr>
-        <th>現在の状況</th><td>稼働可能</td>
-      </tr>
-      <tr>
         <th>SNS</th>
         <td>
           <table>
@@ -40,8 +37,15 @@
               <td class="sns"><%= image_tag 'github.png', :class => 'sns-icon', :size =>'20x20' %></td>
               <td class="sns-id"><%= link_to 'jonconan', 'https://github.com/'+'jonconan', target: :_blank %></td>
             </tr>
+            <tr style="height:40px;">
+              <td class="sns"><%= image_tag 'youtube.png', :class => 'sns-icon', :size =>'20x20' %></td>
+              <td class="sns-id"><%= link_to 'jonconan', 'https://www.youtube.com/user/'+'jonconan', target: :_blank %></td>
+            </tr>
           </table>
         </td>
+      </tr>
+      <tr>
+        <th>ホームページ</th><td><%= link_to 'https://google.com/', 'https://google.com/', target: :_blank %></td>
       </tr>
     </table>
   </li>

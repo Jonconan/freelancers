@@ -12,7 +12,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string  :area
       t.date    :birthday, null: false
       t.integer :display_type, null: false, default: 0
-      t.integer :status_id, null: false, default: 0
+      t.integer :status_id
       t.string  :twitter_id
       t.string  :facebook_id
       t.string  :github_id
