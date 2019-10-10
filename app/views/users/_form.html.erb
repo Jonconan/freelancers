@@ -1,0 +1,78 @@
+<table>
+<%= form_with(model: user, local: true) do |form| %>
+<table>
+  <tr>
+    <th class="create_user"><%= form.label :name, '氏名' %><must>*</must></th>
+    <td><%= form.text_field :name, class: 'input_form', placeholder: '田中 太郎' %></td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :user_code, 'ユーザーID' %><must>*</must></th>
+    <td><%= form.text_field :user_code, class: 'input_form', placeholder: 'jonconan' %></td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :user_name, 'ユーザー名' %><must>*</must></th>
+    <td><%= form.text_field :user_name, class: 'input_form', placeholder: 'ジョン' %></td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :email, 'メールアドレス' %><must>*</must></th>
+    <td><%= form.text_field :email, class: 'input_form', placeholder: 'aaaa@example.com' %></td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :prefecture_id, '都道府県' %><must>*</must></th>
+    <td><%= form.text_field :prefecture_id, class: 'input_form' %></td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :area, '活動している地域' %></th>
+    <td><%= form.text_field :area, class: 'input_form', placeholder: '横浜市' %></td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :birthday, '生年月日' %><must>*</must></th>
+    <td><%= form.date_select :birthday %></td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :is_display_birthday, '生年月日の表示形式' %><must>*</must></th>
+    <td><%= form.check_box :is_display_birthday %></td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :status_id, '現在の稼働ステータス' %></th>
+    <td><%= form.text_field :status_id, class: 'input_form', placeholder: 'hoge' %></td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :twitter_id, 'Twitter ID' %></th>
+    <td><div style="margin: 0 10px;">https://twitter.com/<%= form.text_field :twitter_id, class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●' %></div></td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :facebook_id, 'Facebook ID' %></th>
+    <td><div style="margin: 0 10px;">https://www.facebook.com/<%= form.text_field :facebook_id, class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●' %></div></td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :github_id, 'Github ID' %></th>
+    <td><div style="margin: 0 10px;">https://github.com/<%= form.text_field :github_id, class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●' %></div></td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :youtube_id, 'youtubeチャンネル名' %></th>
+    <td><div style="margin: 0 10px;">https://www.youtube.com/user/<%= form.text_field :youtube_id, class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●' %></div></td>
+  </tr>
+
+  <tr>
+    <th><%= form.label :website_url, 'ホームページのURL' %></th>
+    <td><%= form.text_field :website_url, class: 'input_form', placeholder: 'https://app.sample.com/' %></td>
+  </tr>
+</table>
+
+  <div class="actions">
+    <%= form.submit '登録', class: 'submit' %>
+  </div>
+<% end %>

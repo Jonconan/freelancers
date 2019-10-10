@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_08_161759) do
+ActiveRecord::Schema.define(version: 2019_10_10_045242) do
 
   create_table "languages", force: :cascade do |t|
     t.string "name", null: false
@@ -29,6 +29,29 @@ ActiveRecord::Schema.define(version: 2019_10_08_161759) do
 
   create_table "regions", force: :cascade do |t|
     t.string "name", null: false
+    t.boolean "del_flg", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "user_code", null: false
+    t.string "user_name", null: false
+    t.string "email", null: false
+    t.string "crypted_password", null: false
+    t.string "salt", null: false
+    t.string "profile_image_path"
+    t.integer "prefecture_id", null: false
+    t.string "area"
+    t.date "birthday", null: false
+    t.integer "display_type", default: 0, null: false
+    t.integer "status_id", default: 0, null: false
+    t.string "twitter_id"
+    t.string "facebook_id"
+    t.string "github_id"
+    t.string "youtube_id"
+    t.string "website_url"
     t.boolean "del_flg", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
