@@ -1,5 +1,5 @@
 <table>
-<%= form_with(model: user, local: true) do |form| %>
+<%= form_with(model: user, scope: :post, url: '/users/confirm', local: true) do |form| %>
 <table>
   <tr>
     <th class="create_user"><%= form.label :name, '氏名' %><must>*</must></th>
@@ -23,7 +23,7 @@
 
   <tr>
     <th class="create_user"><%= form.label :prefecture_id, '都道府県' %><must>*</must></th>
-    <td><%= form.text_field :prefecture_id, class: 'input_form' %></td>
+    <td><%= form.select :prefecture_id, @prefectures, {}, { class: 'large_select'} %></td>
   </tr>
 
   <tr>
@@ -77,6 +77,6 @@
 </table>
 
   <div class="actions">
-    <%= form.submit '登録', class: 'submit' %>
+    <%= form.submit '次へ', class: 'submit' %>
   </div>
 <% end %>

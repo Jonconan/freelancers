@@ -1,17 +1,23 @@
 class UsersController < ApplicationController
   before_action :set_page_head_title
-  before_action :set_date_select_list, only: [:new]
+  before_action :initialize, only: [:new, :confirm]
 
   def index
   end
 
   def new
-    @status = STATUS_LIST
-    @display_type = DISPLAY_TYPE
+    @user = User.new
   end
 
   def show
     @id = params[:id]
+  end
+
+  def confirm
+    @basic_info = params[:post]
+  end
+
+  def create
   end
 
   private
@@ -21,9 +27,20 @@ class UsersController < ApplicationController
     titles = {
       "index" => "トップ",
       "new" => "新規ユーザー登録",
-      "show" => "ジョンさんのプロフィール詳細"
+      "show" => "ジョンさんのプロフィール詳細",
+      "confirm" => "新規登録確認"
     }
     @page_title = titles[action]
+  end
+
+  def initialize
+    @status = STATUS_LIST
+    @display_type = DISPLAY_TYPE
+    @prefectures = []
+    Prefecture.all.each do |prefecture|
+      @prefectures.push([prefecture.name, prefecture.id])
+    end
+    set_date_select_list
   end
 
   def set_date_select_list
