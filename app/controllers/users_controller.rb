@@ -3,18 +3,21 @@ class UsersController < ApplicationController
   before_action :initialize, only: [:new, :confirm]
 
   def index
+    render "index", layout: "application"
   end
 
   def new
     @user = User.new
+    render "new", layout: "application"
   end
 
   def show
-    @id = params[:id]
+    render "show", layout: "application"
   end
 
   def confirm
     @basic_info = params[:post]
+    render "confirm", layout: "application"
   end
 
   def create
