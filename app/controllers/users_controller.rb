@@ -16,11 +16,15 @@ class UsersController < ApplicationController
   end
 
   def confirm
-    @basic_info = params[:post]
+    if params[:post].present?
+      delete_basic_info_in_session
+      session[:basic_info] = params[:post]
+    end
     render "confirm", layout: "application"
   end
 
   def create
+    render json: params
   end
 
   private
@@ -69,5 +73,9 @@ class UsersController < ApplicationController
 
   def select_day
     @days = (1..31)
+  end
+
+  def delete_basic_info_in_session
+    session.delete(:basic_info)
   end
 end

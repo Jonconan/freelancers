@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :users do
     post 'confirm', on: :collection
+    get  'confirm', on: :collection
   end
 
 end

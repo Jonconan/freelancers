@@ -1,71 +1,71 @@
-<%= form_with(scope: :post, url: '/users/confirm', local: true) do |form| %>
+<%= form_with(scope: :post, url: '/users', local: true) do |form| %>
 <table>
   <tr>
     <th class="create_user"><%= form.label :name, '氏名' %><must>*</must></th>
-    <td class="basic_info_confirm"><%= basic_info[:last_name] %> <%= basic_info[:first_name] %></td>
+    <td class="basic_info_confirm"><%= basic_info['last_name'] %> <%= basic_info['first_name'] %></td>
   </tr>
 
   <tr>
     <th class="create_user"><%= form.label :user_code, 'ユーザーID' %><must>*</must></th>
-    <td class="basic_info_confirm"><%= basic_info[:user_code] %></td>
+    <td class="basic_info_confirm"><%= basic_info['user_code'] %></td>
   </tr>
 
   <tr>
     <th class="create_user"><%= form.label :user_name, 'ユーザー名' %><must>*</must></th>
-    <td class="basic_info_confirm"><%= basic_info[:user_name] %></td>
+    <td class="basic_info_confirm"><%= basic_info['user_name'] %></td>
   </tr>
 
   <tr>
     <th class="create_user"><%= form.label :email, 'メールアドレス' %><must>*</must></th>
-    <td class="basic_info_confirm"><%= basic_info[:email] %></td>
+    <td class="basic_info_confirm"><%= basic_info['email'] %></td>
   </tr>
 
   <tr>
     <th class="create_user"><%= form.label :area, '活動している地域' %></th>
-    <td class="basic_info_confirm"><%= @prefectures[basic_info[:prefecture_id].to_i - 1][0] %>　<%= basic_info[:area] %></td>
+    <td class="basic_info_confirm"><%= @prefectures[basic_info['prefecture_id'].to_i - 1][0] %>　<%= basic_info['area'] %></td>
   </tr>
 
   <tr>
     <th class="create_user"><%= form.label :birthday, '生年月日' %><must>*</must></th>
     <td class="basic_info_confirm">
-      <%= basic_info[:birthday_year] %>年
-      <%= basic_info[:birthday_month] %>月
-      <%= basic_info[:birthday_day] %>日
-      （<%= @display_type[basic_info[:display_type].to_i][0] %>）
+      <%= basic_info['birthday_year'] %>年
+      <%= basic_info['birthday_month'] %>月
+      <%= basic_info['birthday_day'] %>日
+      （<%= @display_type[basic_info['display_type'].to_i][0] %>）
     </td>
   </tr>
 
   <tr>
     <th class="create_user"><%= form.label :status_id, '現在の稼働ステータス' %></th>
-    <td class="basic_info_confirm"><%= @status[basic_info[:status_id].to_i][0] if basic_info[:status_id].present? %></td>
+    <td class="basic_info_confirm"><%= @status[basic_info['status_id'].to_i][0] if basic_info['status_id'].present? %></td>
   </tr>
 
-  <% if basic_info[:twitter_id].present? %>
-    <% twitter_url = "https://twitter.com/#{basic_info[:twitter_id]}" %>
+  <% if basic_info['twitter_id'].present? %>
+    <% twitter_url = "https://twitter.com/#{basic_info['twitter_id']}" %>
     <tr>
       <th class="create_user"><%= form.label :twitter_id, 'Twitter' %></th>
       <td class="basic_info_confirm"><%= link_to twitter_url, twitter_url, target: :_blank %></td>
     </tr>
   <% end %>
 
-  <% if basic_info[:facebook_id].present? %>
-    <% facebook_url = "https://www.facebook.com/#{basic_info[:facebook_id]}" %>
+  <% if basic_info['facebook_id'].present? %>
+    <% facebook_url = "https://www.facebook.com/#{basic_info['facebook_id']}" %>
     <tr>
       <th class="create_user"><%= form.label :facebook_id, 'Facebook' %></th>
       <td class="basic_info_confirm"><%= link_to facebook_url, facebook_url, target: :_blank %></td>
     </tr>
   <% end %>
 
-  <% if basic_info[:github_id].present? %>
-    <% github_url = "https://github.com/#{basic_info[:github_id]}" %>
+  <% if basic_info['github_id'].present? %>
+    <% github_url = "https://github.com/#{basic_info['github_id']}" %>
     <tr>
       <th class="create_user"><%= form.label :github_id, 'Github' %></th>
       <td class="basic_info_confirm"><%= link_to github_url, github_url, target: :_blank %></td>
     </tr>
   <% end %>
 
-  <% if basic_info[:youtube_id].present? %>
-    <% youtube_url = "https://www.youtube.com/user/#{basic_info[:youtube_id]}" %>
+  <% if basic_info['youtube_id'].present? %>
+    <% youtube_url = "https://www.youtube.com/user/#{basic_info['youtube_id']}" %>
     <tr>
       <th class="create_user"><%= form.label :youtube_id, 'youtube' %></th>
       <td class="basic_info_confirm"><%= link_to youtube_url, youtube_url, target: :_blank %></td>
@@ -74,11 +74,20 @@
 
   <tr>
     <th><%= form.label :website_url, 'ホームページのURL' %></th>
-    <td class="basic_info_confirm"><%= link_to basic_info[:website_url], basic_info[:website_url], target: :_blank %></td>
+    <td class="basic_info_confirm"><%= link_to basic_info['website_url'], basic_info['website_url'], target: :_blank %></td>
   </tr>
 </table>
 
-  <div class="actions">
-    <%= form.submit '登録', class: 'submit' %>
-  </div>
+<p>以上の情報にお間違いなければ、パスワードを設定してください。</p>
+<table>
+  <tr>
+    <th><%= form.label :password, 'パスワード' %></th>
+    <td><%= form.password_field :password, class: 'input_form' %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :password_confirmation, 'パスワード（再確認）' %></th>
+    <td><%= form.password_field :password_confirmation, class: 'input_form' %></td>
+  </tr>
+</table>
+<%= form.submit '次へ', class: 'submit' %>
 <% end %>
