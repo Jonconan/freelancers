@@ -37,8 +37,8 @@ class UsersController < ApplicationController
   end
 
   def initialize
-    @status = STATUS_LIST
-    @display_type = DISPLAY_TYPE
+    @status = STATUS_LIST.map { |column| [column[1], column[0]] }
+    @display_type = DISPLAY_TYPE.map { |column| [column[1], column[0]] }
     @prefectures = []
     Prefecture.all.each do |prefecture|
       @prefectures.push([prefecture.name, prefecture.id])

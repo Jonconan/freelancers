@@ -1,9 +1,12 @@
-<table>
+<must>*</must> 必須項目
 <%= form_with(model: user, scope: :post, url: '/users/confirm', local: true) do |form| %>
 <table>
   <tr>
     <th class="create_user"><%= form.label :name, '氏名' %><must>*</must></th>
-    <td><%= form.text_field :name, class: 'input_form', placeholder: '田中 太郎' %></td>
+    <td>
+      <%= form.text_field :last_name, class: 'input_form', style: 'width: 30%', placeholder: '田中' %>
+      <%= form.text_field :first_name, class: 'input_form', style: 'width: 30%', placeholder: '太郎' %>
+    </td>
   </tr>
 
   <tr>
