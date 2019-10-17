@@ -6,11 +6,11 @@
     <td>
       <%= form.text_field :last_name,
           class: 'input_form', style: 'width: 30%', placeholder: '田中',
-          value: session[:basic_info]["last_name"]
+          value: (session[:basic_info]["last_name"] if session[:basic_info].present?)
       %>
       <%= form.text_field :first_name,
           class: 'input_form', style: 'width: 30%', placeholder: '太郎',
-          value: session[:basic_info]["first_name"]
+          value: (session[:basic_info]["first_name"] if session[:basic_info].present?)
       %>
     </td>
   </tr>
@@ -20,7 +20,7 @@
     <td>
       <%= form.text_field :user_code,
           class: 'input_form', placeholder: 'jonconan',
-          value: session[:basic_info]["user_code"]
+          value: (session[:basic_info]["user_code"] if session[:basic_info].present?)
       %>
     </td>
   </tr>
@@ -30,7 +30,7 @@
     <td>
       <%= form.text_field :user_name,
           class: 'input_form', placeholder: 'ジョン',
-          value: session[:basic_info]["user_name"]
+          value: (session[:basic_info]["user_name"] if session[:basic_info].present?)
       %>
     </td>
   </tr>
@@ -40,7 +40,7 @@
     <td>
       <%= form.text_field :email,
           class: 'input_form', placeholder: 'aaaa@example.com',
-          value: session[:basic_info]["email"]
+          value: (session[:basic_info]["email"] if session[:basic_info].present?)
       %>
     </td>
   </tr>
@@ -57,7 +57,7 @@
     <td>
       <%= form.text_field :area,
           class: 'input_form', placeholder: '横浜市',
-          value: session[:basic_info]["area"]
+          value: (session[:basic_info]["area"] if session[:basic_info].present?)
       %>
     </td>
   </tr>
@@ -92,7 +92,7 @@
         https://twitter.com/
         <%= form.text_field :twitter_id,
             class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●',
-          value: session[:basic_info]["twitter_id"]
+          value: (session[:basic_info]["twitter_id"] if session[:basic_info].present?)
         %>
       </div>
     </td>
@@ -105,7 +105,7 @@
         https://www.facebook.com/
         <%= form.text_field :facebook_id,
         class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●',
-          value: session[:basic_info]["facebook_id"]
+          value: (session[:basic_info]["facebook_id"] if session[:basic_info].present?)
         %>
       </div>
     </td>
@@ -117,7 +117,7 @@
       <div style="margin: 0 10px;">
         https://github.com/<%= form.text_field :github_id,
         class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●',
-          value: session[:basic_info]["github_id"]
+          value: (session[:basic_info]["github_id"] if session[:basic_info].present?)
         %>
       </div>
     </td>
@@ -129,7 +129,7 @@
       <div style="margin: 0 10px;">
         https://www.youtube.com/user/<%= form.text_field :youtube_id,
         class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●',
-          value: session[:basic_info]["youtube_id"]
+          value: (session[:basic_info]["youtube_id"] if session[:basic_info].present?)
         %>
       </div>
     </td>
@@ -140,7 +140,7 @@
     <td>
       <%= form.text_field :website_url,
           class: 'input_form', placeholder: 'https://app.sample.com/',
-          value: session[:basic_info]["website_url"]
+          value: (session[:basic_info]["website_url"] if session[:basic_info].present?)
       %>
     </td>
   </tr>
