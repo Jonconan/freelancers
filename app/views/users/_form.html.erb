@@ -4,34 +4,62 @@
   <tr>
     <th class="create_user"><%= form.label :name, '氏名' %><must>*</must></th>
     <td>
-      <%= form.text_field :last_name, class: 'input_form', style: 'width: 30%', placeholder: '田中' %>
-      <%= form.text_field :first_name, class: 'input_form', style: 'width: 30%', placeholder: '太郎' %>
+      <%= form.text_field :last_name,
+          class: 'input_form', style: 'width: 30%', placeholder: '田中',
+          value: session[:basic_info]["last_name"]
+      %>
+      <%= form.text_field :first_name,
+          class: 'input_form', style: 'width: 30%', placeholder: '太郎',
+          value: session[:basic_info]["first_name"]
+      %>
     </td>
   </tr>
 
   <tr>
     <th class="create_user"><%= form.label :user_code, 'ユーザーID' %><must>*</must></th>
-    <td><%= form.text_field :user_code, class: 'input_form', placeholder: 'jonconan' %></td>
+    <td>
+      <%= form.text_field :user_code,
+          class: 'input_form', placeholder: 'jonconan',
+          value: session[:basic_info]["user_code"]
+      %>
+    </td>
   </tr>
 
   <tr>
     <th class="create_user"><%= form.label :user_name, 'ユーザー名' %><must>*</must></th>
-    <td><%= form.text_field :user_name, class: 'input_form', placeholder: 'ジョン' %></td>
+    <td>
+      <%= form.text_field :user_name,
+          class: 'input_form', placeholder: 'ジョン',
+          value: session[:basic_info]["user_name"]
+      %>
+    </td>
   </tr>
 
   <tr>
     <th class="create_user"><%= form.label :email, 'メールアドレス' %><must>*</must></th>
-    <td><%= form.text_field :email, class: 'input_form', placeholder: 'aaaa@example.com' %></td>
+    <td>
+      <%= form.text_field :email,
+          class: 'input_form', placeholder: 'aaaa@example.com',
+          value: session[:basic_info]["email"]
+      %>
+    </td>
   </tr>
 
   <tr>
     <th class="create_user"><%= form.label :prefecture_id, '都道府県' %><must>*</must></th>
-    <td><%= form.select :prefecture_id, @prefectures, {}, { class: 'large_select'} %></td>
+    <td>
+      <%= form.select :prefecture_id, @prefectures, {}, { class: 'large_select'} %>
+</td>
   </tr>
 
   <tr>
     <th class="create_user"><%= form.label :area, '活動している地域' %></th>
-    <td><%= form.text_field :area, class: 'input_form', placeholder: '横浜市' %></td>
+    <td>
+      <%= form.text_field :area,
+          class: 'input_form', placeholder: '横浜市',
+          value: session[:basic_info]["area"]
+      %>
+    </td>
   </tr>
 
   <tr>
@@ -45,37 +73,76 @@
 
   <tr>
     <th class="create_user"><%= form.label :display_type, '生年月日の表示形式' %><must>*</must></th>
-    <td><%= form.select :display_type, @display_type, {}, { class: 'large_select'} %></td>
+    <td>
+      <%= form.select :display_type, @display_type, {}, { class: 'large_select'} %>
+</td>
   </tr>
 
   <tr>
     <th class="create_user"><%= form.label :status_id, '現在の稼働ステータス' %></th>
-    <td><%= form.select :status_id, @status, {include_blank: true}, { class: 'large_select'} %></td>
+    <td>
+      <%= form.select :status_id, @status, {include_blank: true}, { class: 'large_select'} %>
+</td>
   </tr>
 
   <tr>
     <th class="create_user"><%= form.label :twitter_id, 'Twitter ID' %></th>
-    <td><div style="margin: 0 10px;">https://twitter.com/<%= form.text_field :twitter_id, class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●' %></div></td>
+    <td>
+      <div style="margin: 0 10px;">
+        https://twitter.com/
+        <%= form.text_field :twitter_id,
+            class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●',
+          value: session[:basic_info]["twitter_id"]
+        %>
+      </div>
+    </td>
   </tr>
 
   <tr>
     <th class="create_user"><%= form.label :facebook_id, 'Facebook ID' %></th>
-    <td><div style="margin: 0 10px;">https://www.facebook.com/<%= form.text_field :facebook_id, class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●' %></div></td>
+    <td>
+      <div style="margin: 0 10px;">
+        https://www.facebook.com/
+        <%= form.text_field :facebook_id,
+        class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●',
+          value: session[:basic_info]["facebook_id"]
+        %>
+      </div>
+    </td>
   </tr>
 
   <tr>
     <th class="create_user"><%= form.label :github_id, 'Github ID' %></th>
-    <td><div style="margin: 0 10px;">https://github.com/<%= form.text_field :github_id, class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●' %></div></td>
+    <td>
+      <div style="margin: 0 10px;">
+        https://github.com/<%= form.text_field :github_id,
+        class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●',
+          value: session[:basic_info]["github_id"]
+        %>
+      </div>
+    </td>
   </tr>
 
   <tr>
     <th class="create_user"><%= form.label :youtube_id, 'youtubeチャンネル名' %></th>
-    <td><div style="margin: 0 10px;">https://www.youtube.com/user/<%= form.text_field :youtube_id, class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●' %></div></td>
+    <td>
+      <div style="margin: 0 10px;">
+        https://www.youtube.com/user/<%= form.text_field :youtube_id,
+        class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●',
+          value: session[:basic_info]["youtube_id"]
+        %>
+      </div>
+    </td>
   </tr>
 
   <tr>
     <th><%= form.label :website_url, 'ホームページのURL' %></th>
-    <td><%= form.text_field :website_url, class: 'input_form', placeholder: 'https://app.sample.com/' %></td>
+    <td>
+      <%= form.text_field :website_url,
+          class: 'input_form', placeholder: 'https://app.sample.com/',
+          value: session[:basic_info]["website_url"]
+      %>
+    </td>
   </tr>
 </table>
 

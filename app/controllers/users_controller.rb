@@ -19,7 +19,6 @@ class UsersController < ApplicationController
 
   def confirm
     if params[:post].present?
-      delete_basic_info_in_session
       session[:basic_info] = params[:post]
     end
     render "confirm", layout: "application"
@@ -47,6 +46,7 @@ class UsersController < ApplicationController
       password_confirmation: post[:password_confirmation]
     )
     if @user.save!
+      delete_basic_info_in_session
       redirect_to '/'
     else
       render json: @user
