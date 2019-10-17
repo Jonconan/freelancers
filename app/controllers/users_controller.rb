@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :set_page_head_title
   before_action :initialize, only: [:new, :confirm]
 
+  require "date"
+
   def index
     render "index", layout: "application"
   end
@@ -24,7 +26,35 @@ class UsersController < ApplicationController
   end
 
   def create
-    render json: params
+    basic_info = session[:basic_info]
+    post = params[:post]
+    @user = User.create(
+      name: user_full_name,
+      user_code: basic_info["user_code"],
+      user_name: basic_info["user_name"],
+      email: basic_info["email"],
+      prefecture_id: basic_info["prefecture_id"],
+      area: basic_info["area"],
+      birthday: user_birthday,
+      display_type: basic_info["display_type"],
+      status_id: basic_info["status_id"],
+      twitter_id: basic_info["twitter_id"],
+      facebook_id: basic_info["facebook_id"],
+      github_id: basic_info["github_id"],
+      youtube_id: basic_info["youtube_id"],
+      website_url: basic_info["website_url"],
+      password: post[:password],
+      password_confirmation: post[:password_confirmation]
+    )
+    if @user.save!
+      redirect_to '/'
+    else
+      render json: @user
+    end
+  end
+
+  def check
+    render json: User.all
   end
 
   private
@@ -77,5 +107,19 @@ class UsersController < ApplicationController
 
   def delete_basic_info_in_session
     session.delete(:basic_info)
+  end
+
+  def user_full_name
+    basic_info = session[:basic_info]
+    basic_info["last_name"] + ' ' + basic_info["first_name"]
+  end
+
+  def user_birthday
+    basic_info = session[:basic_info]
+    DateTime.new(
+      basic_info["birthday_year"].to_i,
+      basic_info["birthday_month"].to_i,
+      basic_info["birthday_day"].to_i
+    )
   end
 end
