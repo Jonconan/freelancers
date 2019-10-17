@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_page_head_title
+  # before_action :current_user_check, only: [:show]
   before_action :initialize, only: [:new, :confirm]
 
   require "date"

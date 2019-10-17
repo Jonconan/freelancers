@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   end
 
   get  'sign_in'  => 'user_sessions#sign_in', as: 'sign_in'
-  post 'sign_in'  => 'user_sessions#new_session'
+  post 'sign_in'  => 'user_sessions#create'
   get  'sign_out' => 'user_sessions#sign_out', as: 'sign_out'
 end

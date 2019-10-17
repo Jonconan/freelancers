@@ -15,7 +15,13 @@
       <ul>
         <li><%= link_to "トップページ", :root %></li>
         <li><%= link_to "新規登録", new_user_path %></li>
-        <li><%= link_to "ログイン", sign_in_path %></li>
+        <li>
+          <% if current_user.present? %>
+            <%= link_to "ログアウト", sign_out_path %>
+          <% else %>
+            <%= link_to "ログイン", sign_in_path %>
+          <% end %>
+        </li>
       </ul>
     </div>
     <div class="container">

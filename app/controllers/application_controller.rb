@@ -11,4 +11,9 @@ class ApplicationController < ActionController::Base
     2 => '年齢のみ表示',
     3 => '表示しない'
   }
+
+  def current_user_check
+    redirect_to sign_in_path unless logged_in?
+  end
+
 end
