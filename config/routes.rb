@@ -10,4 +10,7 @@ Rails.application.routes.draw do
     get 'check', on: :collection
   end
 
+  get  'sign_in'  => 'user_sessions#sign_in', as: 'sign_in'
+  post 'sign_in'  => 'user_sessions#new_session'
+  get  'sign_out' => 'user_sessions#sign_out', as: 'sign_out'
 end
