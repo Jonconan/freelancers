@@ -29,7 +29,9 @@
           </li>
           <li>
             <% if current_user.present? %>
-              <%= image_tag '31529208.png', :size =>'32x32', :class => 'current_user_icon' %>
+              <%= link_to '/mypage' do %>
+                <%= image_tag '31529208.png', :size =>'32x32', :class => 'current_user_icon' %>
+              <% end %>
             <% else %>
               <%= image_tag 'man.png', :size =>'32x32', :class => 'current_user_icon' %>
             <% end %>
