@@ -33,6 +33,17 @@
   color: #1650dc;
   font-weight: bold;
 }
+.main-footer li {
+  width: 140px;
+  list-style: none;
+  text-align: center;
+  float: left;
+}
+.main-footer li a {
+  text-decoration: none;
+  color: #1650dc;
+  font-weight: bold;
+}
 .container {
   padding: 50px 0 0 0;
   width: 80%;
