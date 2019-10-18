@@ -12,17 +12,30 @@
 
   <body>
     <div class="main-header">
-      <ul>
-        <li><%= link_to "トップページ", :root %></li>
-        <li><%= link_to "新規登録", new_user_path %></li>
-        <li>
-          <% if current_user.present? %>
-            <%= link_to "ログアウト", sign_out_path %>
-          <% else %>
-            <%= link_to "ログイン", sign_in_path %>
-          <% end %>
-        </li>
-      </ul>
+      <div class="header-left">
+        <ul>
+          <li><%= link_to "トップページ", :root %></li>
+        </ul>
+      </div>
+      <div class="header-right">
+        <ul>
+          <li><%= link_to "新規登録", new_user_path %></li>
+          <li>
+            <% if current_user.present? %>
+              <%= link_to "ログアウト", sign_out_path %>
+            <% else %>
+              <%= link_to "ログイン", sign_in_path %>
+            <% end %>
+          </li>
+          <li>
+            <% if current_user.present? %>
+              <%= image_tag '31529208.png', :size =>'32x32', :class => 'current_user_icon' %>
+            <% else %>
+              <%= image_tag 'man.png', :size =>'32x32', :class => 'current_user_icon' %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="container">
     　<%= render 'layouts/sidebar' %>

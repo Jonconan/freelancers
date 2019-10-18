@@ -22,6 +22,16 @@
   list-style: none;
   overflow: hidden;
 }
+.main-header .header-left {
+  position: fixed;
+}
+.main-header .header-right {
+  float: right;
+}
+img.current_user_icon {
+  background: #FFF;
+  margin-top: -5px;
+}
 .main-header li {
   width: 140px;
   list-style: none;
