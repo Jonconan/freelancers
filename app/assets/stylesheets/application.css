@@ -79,9 +79,8 @@ img.current_user_icon {
 }
 .main-footer {
   width: 100%;
-  height: 5%;
-  max-height: 30px;
-  padding: 10px;
+  height: 30px;
+  padding: 5px 10px 20px 10px;
   background: #ebf397;
 }
 .input_form {
