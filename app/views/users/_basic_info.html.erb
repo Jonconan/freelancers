@@ -82,11 +82,17 @@
 <table>
   <tr>
     <th><%= form.label :password, 'パスワード' %></th>
-    <td><%= form.password_field :password, class: 'input_form' %></td>
+    <td>
+      <p class="conditions">ログインに使用するパスワードとなります。<font color="#C00">半角英数字のみ、4〜16文字</font>で設定してください。</p>
+      <%= form.password_field :password, class: 'input_form' %>
+    </td>
   </tr>
   <tr>
     <th><%= form.label :password_confirmation, 'パスワード（再確認）' %></th>
-    <td><%= form.password_field :password_confirmation, class: 'input_form' %></td>
+    <td>
+      <p class="conditions">ログインに使用するパスワードとなります。（再確認）</p>
+      <%= form.password_field :password_confirmation, class: 'input_form' %>
+    </td>
   </tr>
 </table>
 <%= form.submit '次へ', class: 'submit' %>

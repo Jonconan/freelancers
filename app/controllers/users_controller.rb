@@ -28,24 +28,12 @@ class UsersController < ApplicationController
   def create
     basic_info = session[:basic_info]
     post = params[:post]
-    @user = User.create(
-      name: user_full_name,
-      user_code: basic_info["user_code"],
-      user_name: basic_info["user_name"],
-      email: basic_info["email"],
-      prefecture_id: basic_info["prefecture_id"],
-      area: basic_info["area"],
-      birthday: user_birthday,
-      display_type: basic_info["display_type"],
-      status_id: basic_info["status_id"],
-      twitter_id: basic_info["twitter_id"],
-      facebook_id: basic_info["facebook_id"],
-      github_id: basic_info["github_id"],
-      youtube_id: basic_info["youtube_id"],
-      website_url: basic_info["website_url"],
-      password: post[:password],
-      password_confirmation: post[:password_confirmation]
-    )
+    @user = User.create(user_params)
+    @user.name = user_full_name
+    @user.birthday = user_birthday
+    @user.password = post[:password]
+    @user.password_confirmation = post[:password_confirmation]
+
     if @user.save!
       delete_basic_info_in_session
       redirect_to '/'
@@ -69,6 +57,24 @@ class UsersController < ApplicationController
       "confirm" => "新規登録確認"
     }
     @page_title = titles[action]
+  end
+
+  def user_params
+    basic_info = session
+    session.require(:basic_info).permit(
+      :user_code,
+      :user_name,
+      :email,
+      :prefecture_id,
+      :area,
+      :display_type,
+      :status_id,
+      :twitter_id,
+      :facebook_id,
+      :github_id,
+      :youtube_id,
+      :website_url
+    )
   end
 
   def initialize
