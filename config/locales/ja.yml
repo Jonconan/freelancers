@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        user_code: ユーザーID
+        website_url: ホームページのURL

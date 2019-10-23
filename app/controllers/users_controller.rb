@@ -31,15 +31,20 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     @user.name = user_full_name
     @user.birthday = user_birthday
-    @user.password = post[:password]
-    @user.password_confirmation = post[:password_confirmation]
+    @user.set_password(post[:password], post[:password_confirmation])
 
-    if @user.save!
-      delete_basic_info_in_session
-      redirect_to '/'
-    else
-      render json: @user
-    end
+    # if post[:password] != post[:password_confirmation]
+    #   @user.errors.add(:pasword, "パスワードが一致しません。")
+    # end
+    render json: @user.errors.messages
+
+    # if @user.valid?
+    #   @user.save
+    #   delete_basic_info_in_session
+    #   redirect_to '/' and return
+    # else
+    #   redirect_to new_user_path unless @user.valid?
+    # end
   end
 
   def check
@@ -60,21 +65,21 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    basic_info = session
-    session.require(:basic_info).permit(
-      :user_code,
-      :user_name,
-      :email,
-      :prefecture_id,
-      :area,
-      :display_type,
-      :status_id,
-      :twitter_id,
-      :facebook_id,
-      :github_id,
-      :youtube_id,
-      :website_url
-    )
+    basic_info = session[:basic_info]
+    user_params = {
+      "user_code"     => basic_info["user_code"],
+      "user_name"     => basic_info["user_name"],
+      "email"         => basic_info["email"],
+      "prefecture_id" => basic_info["prefecture_id"],
+      "area"          => basic_info["area"],
+      "display_type"  => basic_info["display_type"],
+      "status_id"     => basic_info["status_id"],
+      "twitter_id"    => basic_info["twitter_id"],
+      "facebook_id"   => basic_info["facebook_id"],
+      "github_id"     => basic_info["github_id"],
+      "youtube_id"    => basic_info["youtube_id"],
+      "website_url"   => basic_info["website_url"]
+    }
   end
 
   def initialize

@@ -1,11 +1,34 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
-  validates :password, length: {in: 4..16}, if: -> { new_record? || changes[:crypted_password] }
-  validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
-  validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
+  VALID_PASSWORD_REGEX = /\A[a-zA-Z\d]+\z/.freeze
+  validates :password,
+            length: { maximum: 16, too_long:  'パスワードは%{count}文字以内で入力してください。',
+                      minimum: 4,  too_short: 'パスワードは%{count}文字以上で入力してください。' },
+            format: { with: VALID_PASSWORD_REGEX, message: 'パスワードの形式が間違っています。半角英数字で入力してください。' },
+            presence: true, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
+  validates :password_confirmation,
+            length: { maximum: 16, too_long:  'パスワードは%{count}文字以内で入力してください。',
+                      minimum: 4,  too_short: 'パスワードは%{count}文字以上で入力してください。' },
+            format: { with: VALID_PASSWORD_REGEX, message: 'パスワードの形式が間違っています。半角英数字で入力してください。' },
+            presence: true, if: -> { new_record? || changes[:crypted_password] }
+  validates :user_code,
+            uniqueness: true,
+            length: { maximum: 16, too_long:  'ユーザーIDは%{count}文字以内で入力してください。',
+                      minimum: 4,  too_short: 'ユーザーIDは%{count}文字以上で入力してください。' }
+  validates :user_name, presence: true
+  validates :email, uniqueness: true, presence: true
 
-  validates :user_code, uniqueness: true
+  validate :sample
 
-  validates :user_code, length: {in: 4..16}
+  def sample
+    if password != password_confirmation
+      error.add(:password, "一致しません")
+    end
+  end
+
+  def set_password(password, password_confirmation)
+    self.password = password
+    self.password_confirmation = password_confirmation
+  end
 end
