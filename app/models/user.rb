@@ -23,7 +23,7 @@ class User < ApplicationRecord
 
   def sample
     if password != password_confirmation
-      error.add(:password, "一致しません")
+      errors.add(:password, "一致しません")
     end
   end
 

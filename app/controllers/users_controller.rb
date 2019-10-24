@@ -28,23 +28,16 @@ class UsersController < ApplicationController
   def create
     basic_info = session[:basic_info]
     post = params[:post]
-    @user = User.create(user_params)
-    @user.name = user_full_name
-    @user.birthday = user_birthday
-    @user.set_password(post[:password], post[:password_confirmation])
+    @user = User.new(user_params)
 
-    # if post[:password] != post[:password_confirmation]
-    #   @user.errors.add(:pasword, "パスワードが一致しません。")
-    # end
-    render json: @user.errors.messages
-
-    # if @user.valid?
-    #   @user.save
-    #   delete_basic_info_in_session
-    #   redirect_to '/' and return
-    # else
-    #   redirect_to new_user_path unless @user.valid?
-    # end
+    if @user.valid?
+      @user.save
+      delete_basic_info_in_session
+      redirect_to '/' and return
+    else
+      @errors = @user.errors.messages
+      render "new", layout: "application"
+    end
   end
 
   def check
@@ -66,10 +59,15 @@ class UsersController < ApplicationController
 
   def user_params
     basic_info = session[:basic_info]
+    post = params[:post]
     user_params = {
+      "name"          => user_full_name,
       "user_code"     => basic_info["user_code"],
       "user_name"     => basic_info["user_name"],
       "email"         => basic_info["email"],
+      "birthday"      => user_birthday,
+      "password"      => post[:password],
+      "password_confirmation" => post[:password_confirmation],
       "prefecture_id" => basic_info["prefecture_id"],
       "area"          => basic_info["area"],
       "display_type"  => basic_info["display_type"],
