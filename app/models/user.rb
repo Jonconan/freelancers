@@ -2,22 +2,22 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
 
   VALID_PASSWORD_REGEX = /\A[a-zA-Z\d]+\z/.freeze
-  validates :password,
-            length: { maximum: 16, too_long:  'パスワードは%{count}文字以内で入力してください。',
-                      minimum: 4,  too_short: 'パスワードは%{count}文字以上で入力してください。' },
-            format: { with: VALID_PASSWORD_REGEX, message: 'パスワードの形式が間違っています。半角英数字で入力してください。' },
-            presence: true, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
-  validates :password_confirmation,
-            length: { maximum: 16, too_long:  'パスワードは%{count}文字以内で入力してください。',
-                      minimum: 4,  too_short: 'パスワードは%{count}文字以上で入力してください。' },
-            format: { with: VALID_PASSWORD_REGEX, message: 'パスワードの形式が間違っています。半角英数字で入力してください。' },
-            presence: true, if: -> { new_record? || changes[:crypted_password] }
-  validates :user_code,
+  validates :name, presence: true
+  validates :user_code, presence: true,
             uniqueness: true,
-            length: { maximum: 16, too_long:  'ユーザーIDは%{count}文字以内で入力してください。',
-                      minimum: 4,  too_short: 'ユーザーIDは%{count}文字以上で入力してください。' }
+            length: { maximum: 16, minimum: 4 }
   validates :user_name, presence: true
   validates :email, uniqueness: true, presence: true
+  validates :password,
+            presence: true, confirmation: true,
+            length: { maximum: 16, minimum: 4 },
+            format: { with: VALID_PASSWORD_REGEX, message: 'の形式が間違っています。半角英数字で入力してください。' },
+            if: -> { new_record? || changes[:crypted_password] }
+  validates :password_confirmation,
+            presence: true,
+            length: { maximum: 16, minimum: 4 },
+            format: { with: VALID_PASSWORD_REGEX, message: 'の形式が間違っています。半角英数字で入力してください。' },
+            if: -> { new_record? || changes[:crypted_password] }
 
   validate :sample
 

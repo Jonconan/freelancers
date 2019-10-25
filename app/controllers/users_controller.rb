@@ -35,7 +35,8 @@ class UsersController < ApplicationController
       delete_basic_info_in_session
       redirect_to '/' and return
     else
-      @errors = @user.errors.messages
+      @errors = @user.errors.full_messages
+      @page_title = "新規ユーザー登録"
       render "new", layout: "application"
     end
   end

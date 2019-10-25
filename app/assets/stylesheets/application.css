@@ -163,3 +163,14 @@ input.submit {
 .btn-square-slant:active:after, .btn-square-slant:active:before {
   content: none;/*ボタンを押すと線が消える*/
 }
+
+.error_messages {
+    border: solid #F00 3px;
+    margin: 10px;
+    background: #900000b5;
+    padding: 10px;
+}
+.error_messages p {
+    line-height: 10px;
+    color: #fdd;
+}

@@ -1,23 +1,11 @@
 <p><must>*</must>の項目のみ必須項目となります。他は任意での入力になりますので、お気軽にご記入ください。</p>
-<ul>
-  <% if @errors.present? %>
-    <% @errors[:user_code].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-
-    <% @errors[:email].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-
-    <% @errors[:password].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-
-    <% @errors[:password_confirmation].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
+<% if @errors.present? %>
+<div class="error_messages">
+  <% @errors.each do |error| %>
+    <p><%= error %></p>
   <% end %>
-</ul>
+</div>
+<% end %>
 <%= form_with(model: user, scope: :post, url: '/users/confirm', local: true) do |form| %>
 <table>
   <tr>
