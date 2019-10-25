@@ -165,12 +165,9 @@ input.submit {
 }
 
 .error_messages {
-    border: solid #F00 3px;
-    margin: 10px;
-    background: #900000b5;
-    padding: 10px;
+  margin: -10px 10px 10px 10px;
 }
 .error_messages p {
     line-height: 10px;
-    color: #fdd;
+    color: #f00;
 }

@@ -1,11 +1,4 @@
 <p><must>*</must>の項目のみ必須項目となります。他は任意での入力になりますので、お気軽にご記入ください。</p>
-<% if @errors.present? %>
-<div class="error_messages">
-  <% @errors.each do |error| %>
-    <p><%= error %></p>
-  <% end %>
-</div>
-<% end %>
 <%= form_with(model: user, scope: :post, url: '/users/confirm', local: true) do |form| %>
 <table>
   <tr>
@@ -20,6 +13,11 @@
           class: 'input_form', style: 'width: 30%', placeholder: '太郎',
           value: (session[:basic_info]["first_name"] if session[:basic_info].present?)
       %>
+      <% if @errors.present? and @errors["name"].present? %>
+        <div class="error_messages">
+          <p><%= @errors["name"].first %></p>
+        </div>
+      <% end %>
     </td>
   </tr>
 
@@ -31,6 +29,11 @@
           class: 'input_form', placeholder: 'jonconan',
           value: (session[:basic_info]["user_code"] if session[:basic_info].present?)
       %>
+      <% if @errors.present? and @errors["user_code"].present? %>
+        <div class="error_messages">
+          <p><%= @errors["user_code"].first %></p>
+        </div>
+      <% end %>
     </td>
   </tr>
 
@@ -42,6 +45,11 @@
           class: 'input_form', placeholder: 'ジョン',
           value: (session[:basic_info]["user_name"] if session[:basic_info].present?)
       %>
+      <% if @errors.present? and @errors["user_name"].present? %>
+        <div class="error_messages">
+          <p><%= @errors["user_name"].first %></p>
+        </div>
+      <% end %>
     </td>
   </tr>
 
@@ -53,6 +61,11 @@
           class: 'input_form', placeholder: 'aaaa@example.com',
           value: (session[:basic_info]["email"] if session[:basic_info].present?)
       %>
+      <% if @errors.present? and @errors["email"].present? %>
+        <div class="error_messages">
+          <p><%= @errors["email"].first %></p>
+        </div>
+      <% end %>
     </td>
   </tr>
 

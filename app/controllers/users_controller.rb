@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_page_head_title
   # before_action :current_user_check, only: [:show]
   before_action :initialize, only: [:new, :confirm]
+  before_action :delete_basic_info_with_error_in_session, only: [:index, :show]
 
   require "date"
 
@@ -11,6 +12,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @errors = session[:user_errors]
     render "new", layout: "application"
   end
 
@@ -19,8 +21,15 @@ class UsersController < ApplicationController
   end
 
   def confirm
+    @errors = session[:user_errors]
     if params[:post].present?
       session[:basic_info] = params[:post]
+      user = User.new(user_params)
+      user.valid?
+      unless user.valid_of_specified?(:name, :user_code, :user_name, :email)
+        session[:user_errors] = user.errors.messages
+        redirect_to new_user_path and return
+      end
     end
     render "confirm", layout: "application"
   end
@@ -28,16 +37,18 @@ class UsersController < ApplicationController
   def create
     basic_info = session[:basic_info]
     post = params[:post]
-    @user = User.new(user_params)
+    @user = User.new(
+      user_params(password: post[:password], password_confirmation: post[:password_confirmation])
+    )
 
+    delete_error_in_session
     if @user.valid?
       @user.save
-      delete_basic_info_in_session
+      delete_basic_info_with_error_in_session
       redirect_to '/' and return
     else
-      @errors = @user.errors.full_messages
-      @page_title = "新規ユーザー登録"
-      render "new", layout: "application"
+      session[:user_errors] = @user.errors.messages
+      redirect_to '/users/confirm'
     end
   end
 
@@ -58,17 +69,16 @@ class UsersController < ApplicationController
     @page_title = titles[action]
   end
 
-  def user_params
+  def user_params(password: nil, password_confirmation: nil)
     basic_info = session[:basic_info]
-    post = params[:post]
     user_params = {
-      "name"          => user_full_name,
+      "name"          => user_full_name.strip,
       "user_code"     => basic_info["user_code"],
       "user_name"     => basic_info["user_name"],
       "email"         => basic_info["email"],
       "birthday"      => user_birthday,
-      "password"      => post[:password],
-      "password_confirmation" => post[:password_confirmation],
+      "password"      => password,
+      "password_confirmation" => password_confirmation,
       "prefecture_id" => basic_info["prefecture_id"],
       "area"          => basic_info["area"],
       "display_type"  => basic_info["display_type"],
@@ -116,10 +126,6 @@ class UsersController < ApplicationController
     @days = (1..31)
   end
 
-  def delete_basic_info_in_session
-    session.delete(:basic_info)
-  end
-
   def user_full_name
     basic_info = session[:basic_info]
     basic_info["last_name"] + ' ' + basic_info["first_name"]
@@ -133,4 +139,18 @@ class UsersController < ApplicationController
       basic_info["birthday_day"].to_i
     )
   end
+
+  def delete_basic_info_in_session
+    session.delete(:basic_info)
+  end
+
+  def delete_error_in_session
+    session.delete(:user_errors)
+  end
+
+  def delete_basic_info_with_error_in_session
+    session.delete(:basic_info)
+    session.delete(:user_errors)
+  end
+
 end

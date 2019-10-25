@@ -85,6 +85,11 @@
     <td>
       <p class="conditions">ログインに使用するパスワードとなります。<font color="#C00">半角英数字のみ、4〜16文字</font>で設定してください。</p>
       <%= form.password_field :password, class: 'input_form' %>
+      <% if @errors.present? and @errors["password"].present? %>
+        <div class="error_messages">
+          <p><%= @errors["password"].first %></p>
+        </div>
+      <% end %>
     </td>
   </tr>
   <tr>
@@ -92,6 +97,11 @@
     <td>
       <p class="conditions">ログインに使用するパスワードとなります。（再確認）</p>
       <%= form.password_field :password_confirmation, class: 'input_form' %>
+      <% if @errors.present? and @errors["password_confirmation"].present? %>
+        <div class="error_messages">
+          <p><%= @errors["password_confirmation"].first %></p>
+        </div>
+      <% end %>
     </td>
   </tr>
 </table>
