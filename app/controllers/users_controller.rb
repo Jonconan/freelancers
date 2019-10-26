@@ -77,6 +77,7 @@ class UsersController < ApplicationController
       "user_name"     => basic_info["user_name"],
       "email"         => basic_info["email"],
       "birthday"      => user_birthday,
+      "profile_image_path" => basic_info["profile_image_path"],
       "password"      => password,
       "password_confirmation" => password_confirmation,
       "prefecture_id" => basic_info["prefecture_id"],

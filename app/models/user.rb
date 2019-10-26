@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
+  mount_uploader :profile_image_path, ProfileImagePathUploader
 
   VALID_PASSWORD_REGEX = /\A[a-zA-Z\d]+\z/.freeze
   validates :name, presence: true
