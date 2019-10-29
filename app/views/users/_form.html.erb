@@ -2,14 +2,6 @@
 <%= form_with(model: user, scope: :post, url: '/users/confirm', local: true) do |form| %>
 <table>
   <tr>
-    <th class="create_user"><%= form.label :profile_image_path, 'プロフィール画像' %></th>
-    <td>
-      <p class="conditions">プロフィール画像を選択してください。</p>
-      <%= form.file_field :profile_image_path, class: 'input_form' %>
-    </td>
-  </tr>
-
-  <tr>
     <th class="create_user"><%= form.label :name, '氏名' %><must>*</must></th>
     <td>
       <p class="conditions">本人確認に使用します。サイトには掲載されませんのでご安心くださいませ。</p>
@@ -82,7 +74,7 @@
     <td>
       <p class="conditions">活動している都道府県をお選びください。</p>
       <%= form.select :prefecture_id, @prefectures, {}, { class: 'large_select'} %>
-</td>
+    </td>
   </tr>
 
   <tr>
@@ -111,14 +103,6 @@
     <td>
       <p class="conditions">生年月日を公開するレベルを選択してください。</p>
       <%= form.select :display_type, @display_type, {}, { class: 'large_select'} %>
-    </td>
-  </tr>
-
-  <tr>
-    <th class="create_user"><%= form.label :status_id, '現在の稼働ステータス' %></th>
-    <td>
-      <p class="conditions">現在の稼働ステータスを選択してください。未選択でも問題ありません。</p>
-      <%= form.select :status_id, @status, {include_blank: true}, { class: 'large_select'} %>
     </td>
   </tr>
 

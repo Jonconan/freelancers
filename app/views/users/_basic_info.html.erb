@@ -35,11 +35,6 @@
     </td>
   </tr>
 
-  <tr>
-    <th class="create_user"><%= form.label :status_id, '現在の稼働ステータス' %></th>
-    <td class="basic_info_confirm"><%= @status[basic_info['status_id'].to_i][0] if basic_info['status_id'].present? %></td>
-  </tr>
-
   <% if basic_info['twitter_id'].present? %>
     <% twitter_url = "https://twitter.com/#{basic_info['twitter_id']}" %>
     <tr>

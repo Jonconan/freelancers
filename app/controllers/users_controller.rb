@@ -4,20 +4,20 @@ class UsersController < ApplicationController
   before_action :initialize, only: [:new, :confirm]
   before_action :delete_basic_info_with_error_in_session, only: [:index, :show]
 
-  require "date"
+  require 'date'
 
   def index
-    render "index", layout: "application"
+    render 'index', layout: 'application'
   end
 
   def new
     @user = User.new
     @errors = session[:user_errors]
-    render "new", layout: "application"
+    render 'new', layout: 'application'
   end
 
   def show
-    render "show", layout: "application"
+    render 'show', layout: 'application'
   end
 
   def confirm
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
         redirect_to new_user_path and return
       end
     end
-    render "confirm", layout: "application"
+    render 'confirm', layout: 'application'
   end
 
   def create
@@ -45,7 +45,8 @@ class UsersController < ApplicationController
     if @user.valid?
       @user.save
       delete_basic_info_with_error_in_session
-      redirect_to '/' and return
+      login(@user.user_code, post[:password])
+      render 'create', layout: 'application'
     else
       session[:user_errors] = @user.errors.messages
       redirect_to '/users/confirm'
@@ -61,10 +62,10 @@ class UsersController < ApplicationController
   def set_page_head_title
     action = params[:action]
     titles = {
-      "index" => "トップ",
-      "new" => "新規ユーザー登録",
-      "show" => "ジョンさんのプロフィール詳細",
-      "confirm" => "新規登録確認"
+      'index' => 'トップ',
+      'new' => '新規ユーザー登録',
+      'show' => 'ジョンさんのプロフィール詳細',
+      'confirm' => '新規登録確認'
     }
     @page_title = titles[action]
   end
@@ -72,23 +73,21 @@ class UsersController < ApplicationController
   def user_params(password: nil, password_confirmation: nil)
     basic_info = session[:basic_info]
     user_params = {
-      "name"          => user_full_name.strip,
-      "user_code"     => basic_info["user_code"],
-      "user_name"     => basic_info["user_name"],
-      "email"         => basic_info["email"],
-      "birthday"      => user_birthday,
-      "profile_image_path" => basic_info["profile_image_path"],
-      "password"      => password,
-      "password_confirmation" => password_confirmation,
-      "prefecture_id" => basic_info["prefecture_id"],
-      "area"          => basic_info["area"],
-      "display_type"  => basic_info["display_type"],
-      "status_id"     => basic_info["status_id"],
-      "twitter_id"    => basic_info["twitter_id"],
-      "facebook_id"   => basic_info["facebook_id"],
-      "github_id"     => basic_info["github_id"],
-      "youtube_id"    => basic_info["youtube_id"],
-      "website_url"   => basic_info["website_url"]
+      'name'          => user_full_name.strip,
+      'user_code'     => basic_info['user_code'],
+      'user_name'     => basic_info['user_name'],
+      'email'         => basic_info['email'],
+      'birthday'      => user_birthday,
+      'password'      => password,
+      'password_confirmation' => password_confirmation,
+      'prefecture_id' => basic_info['prefecture_id'],
+      'area'          => basic_info['area'],
+      'display_type'  => basic_info['display_type'],
+      'twitter_id'    => basic_info['twitter_id'],
+      'facebook_id'   => basic_info['facebook_id'],
+      'github_id'     => basic_info['github_id'],
+      'youtube_id'    => basic_info['youtube_id'],
+      'website_url'   => basic_info['website_url']
     }
   end
 
@@ -129,15 +128,15 @@ class UsersController < ApplicationController
 
   def user_full_name
     basic_info = session[:basic_info]
-    basic_info["last_name"] + ' ' + basic_info["first_name"]
+    basic_info['last_name'] + ' ' + basic_info['first_name']
   end
 
   def user_birthday
     basic_info = session[:basic_info]
     DateTime.new(
-      basic_info["birthday_year"].to_i,
-      basic_info["birthday_month"].to_i,
-      basic_info["birthday_day"].to_i
+      basic_info['birthday_year'].to_i,
+      basic_info['birthday_month'].to_i,
+      basic_info['birthday_day'].to_i
     )
   end
 
