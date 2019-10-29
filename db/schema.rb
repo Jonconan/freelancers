@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_10_045242) do
+ActiveRecord::Schema.define(version: 2019_10_29_084019) do
 
   create_table "languages", force: :cascade do |t|
     t.string "name", null: false
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2019_10_10_045242) do
     t.boolean "del_flg", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "gender_id", default: 0
   end
 
   create_table "workstyles", force: :cascade do |t|

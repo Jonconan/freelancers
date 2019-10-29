@@ -21,6 +21,11 @@
   </tr>
 
   <tr>
+    <th class="create_user"><%= form.label :gender_id, '性別' %><must>*</must></th>
+    <td class="basic_info_confirm"><%= @gender[basic_info['gender_id'].to_i] %></td>
+  </tr>
+
+  <tr>
     <th class="create_user"><%= form.label :area, '活動している地域' %></th>
     <td class="basic_info_confirm"><%= @prefectures[basic_info['prefecture_id'].to_i - 1][0] %>　<%= basic_info['area'] %></td>
   </tr>
@@ -67,10 +72,12 @@
     </tr>
   <% end %>
 
-  <tr>
-    <th><%= form.label :website_url, 'ホームページのURL' %></th>
-    <td class="basic_info_confirm"><%= link_to basic_info['website_url'], basic_info['website_url'], target: :_blank %></td>
-  </tr>
+  <% if basic_info['website_url'].present? %>
+    <tr>
+      <th><%= form.label :website_url, 'ホームページのURL' %></th>
+      <td class="basic_info_confirm"><%= link_to basic_info['website_url'], basic_info['website_url'], target: :_blank %></td>
+    </tr>
+  <% end %>
 </table>
 
 <p>以上の情報にお間違いなければ、パスワードを設定してください。</p>

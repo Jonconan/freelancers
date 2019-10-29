@@ -65,6 +65,7 @@ class UsersController < ApplicationController
       'index' => 'トップ',
       'new' => '新規ユーザー登録',
       'show' => 'ジョンさんのプロフィール詳細',
+      'create' => 'アカウント作成完了',
       'confirm' => '新規登録確認'
     }
     @page_title = titles[action]
@@ -77,6 +78,7 @@ class UsersController < ApplicationController
       'user_code'     => basic_info['user_code'],
       'user_name'     => basic_info['user_name'],
       'email'         => basic_info['email'],
+      'gender_id'     => basic_info['gender_id'],
       'birthday'      => user_birthday,
       'password'      => password,
       'password_confirmation' => password_confirmation,
@@ -94,6 +96,7 @@ class UsersController < ApplicationController
   def initialize
     @status = STATUS_LIST.map { |column| [column[1], column[0]] }
     @display_type = DISPLAY_TYPE.map { |column| [column[1], column[0]] }
+    @gender = GENDER_LISTS
     @prefectures = []
     Prefecture.all.each do |prefecture|
       @prefectures.push([prefecture.name, prefecture.id])
