@@ -7,7 +7,7 @@
     </div>
     <div class="profile">
       <ul>
-        <li class="name"><%= link_to 'ジョン', 'user/1' %></li>
+        <li class="name"><%= link_to 'ジョン', user_path(1) %></li>
         <li>
         </li>
         <li class="price">4,000円/h〜</li>
@@ -29,13 +29,13 @@
 
   <li>
     <div class="thumbnail">
-      <%= link_to '/user/1' do %>
+      <%= link_to user_path(1) do %>
         <%= image_tag '31529208.png', :size =>'160x160' %>
       <% end %>
     </div>
     <div class="profile">
       <ul>
-        <li class="name"><%= link_to 'ジョン', 'user/1' %></li>
+        <li class="name"><%= link_to 'ジョン', user_path(1) %></li>
         <li>
         </li>
         <li class="price">4,000円/h〜</li>

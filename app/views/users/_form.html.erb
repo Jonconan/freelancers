@@ -1,0 +1,178 @@
+<p><must>*</must>の項目のみ必須項目となります。他は任意での入力になりますので、お気軽にご記入ください。</p>
+<%= form_with(model: user, scope: :post, url: '/users/confirm', local: true) do |form| %>
+<table>
+  <tr>
+    <th class="create_user"><%= form.label :name, '氏名' %><must>*</must></th>
+    <td>
+      <p class="conditions">本人確認に使用します。サイトには掲載されませんのでご安心くださいませ。</p>
+      <%= form.text_field :last_name,
+          class: 'input_form', style: 'width: 30%', placeholder: '田中',
+          value: (session[:basic_info]["last_name"] if session[:basic_info].present?)
+      %>
+      <%= form.text_field :first_name,
+          class: 'input_form', style: 'width: 30%', placeholder: '太郎',
+          value: (session[:basic_info]["first_name"] if session[:basic_info].present?)
+      %>
+      <% if @errors.present? and @errors["name"].present? %>
+        <div class="error_messages">
+          <p><%= @errors["name"].first %></p>
+        </div>
+      <% end %>
+    </td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :user_code, 'ユーザーID' %><must>*</must></th>
+    <td>
+      <p class="conditions">ログインに使用するIDとなります。<font color="#C00">半角英数字のみ、4〜16文字</font>で設定してください。</p>
+      <%= form.text_field :user_code,
+          class: 'input_form', placeholder: 'jonconan',
+          value: (session[:basic_info]["user_code"] if session[:basic_info].present?)
+      %>
+      <% if @errors.present? and @errors["user_code"].present? %>
+        <div class="error_messages">
+          <p><%= @errors["user_code"].first %></p>
+        </div>
+      <% end %>
+    </td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :user_name, 'ユーザー名' %><must>*</must></th>
+    <td>
+      <p class="conditions">サイトに表示される名前となります。誰でも閲覧できるため、ニックネームを推奨致します。</p>
+      <%= form.text_field :user_name,
+          class: 'input_form', placeholder: 'ジョン',
+          value: (session[:basic_info]["user_name"] if session[:basic_info].present?)
+      %>
+      <% if @errors.present? and @errors["user_name"].present? %>
+        <div class="error_messages">
+          <p><%= @errors["user_name"].first %></p>
+        </div>
+      <% end %>
+    </td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :email, 'メールアドレス' %><must>*</must></th>
+    <td>
+      <p class="conditions">ご連絡する際のメールアドレスとなります。サイトに掲載はされませんのでご安心くださいませ。</p>
+      <%= form.text_field :email,
+          class: 'input_form', placeholder: 'aaaa@example.com',
+          value: (session[:basic_info]["email"] if session[:basic_info].present?)
+      %>
+      <% if @errors.present? and @errors["email"].present? %>
+        <div class="error_messages">
+          <p><%= @errors["email"].first %></p>
+        </div>
+      <% end %>
+    </td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :prefecture_id, '都道府県' %><must>*</must></th>
+    <td>
+      <p class="conditions">活動している都道府県をお選びください。</p>
+      <%= form.select :prefecture_id, @prefectures, {}, { class: 'large_select'} %>
+    </td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :area, '活動している地域' %></th>
+    <td>
+      <p class="conditions">サイトにそのまま記載されますので、<font color="#C00">住所をそのまま記載しないでください</font>。</p>
+      <%= form.text_field :area,
+          class: 'input_form', placeholder: '横浜市',
+          value: (session[:basic_info]["area"] if session[:basic_info].present?)
+      %>
+    </td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :birthday, '生年月日' %><must>*</must></th>
+    <td>
+      <p class="conditions">生年月日を入力してください。表示するレベルは次項目で選択可能です。</p>
+      <%= form.select :birthday_year, @years %>年
+      <%= form.select :birthday_month, @months %>月
+      <%= form.select :birthday_day, @days %>日
+    </td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :display_type, '生年月日の表示形式' %><must>*</must></th>
+    <td>
+      <p class="conditions">生年月日を公開するレベルを選択してください。</p>
+      <%= form.select :display_type, @display_type, {}, { class: 'large_select'} %>
+    </td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :twitter_id, 'Twitter ID' %></th>
+    <td>
+      <p class="conditions">TwitterのIDを入力してください。</p>
+      <div style="margin: 0 10px;">
+        https://twitter.com/
+        <%= form.text_field :twitter_id,
+            class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●',
+          value: (session[:basic_info]["twitter_id"] if session[:basic_info].present?)
+        %>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :facebook_id, 'Facebook ID' %></th>
+    <td>
+      <p class="conditions">FacebookのIDを入力してください。</p>
+      <div style="margin: 0 10px;">
+        https://www.facebook.com/
+        <%= form.text_field :facebook_id,
+        class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●',
+          value: (session[:basic_info]["facebook_id"] if session[:basic_info].present?)
+        %>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :github_id, 'Github ID' %></th>
+    <td>
+      <p class="conditions">GithubのIDを入力してください。</p>
+      <div style="margin: 0 10px;">
+        https://github.com/<%= form.text_field :github_id,
+        class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●',
+          value: (session[:basic_info]["github_id"] if session[:basic_info].present?)
+        %>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <th class="create_user"><%= form.label :youtube_id, 'youtubeチャンネル名' %></th>
+    <td>
+      <p class="conditions">youtubeチャンネルのチャンネル名を入力してください。</p>
+      <div style="margin: 0 10px;">
+        https://www.youtube.com/user/<%= form.text_field :youtube_id,
+        class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●',
+          value: (session[:basic_info]["youtube_id"] if session[:basic_info].present?)
+        %>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <th><%= form.label :website_url, 'ホームページのURL' %></th>
+    <td>
+      <p class="conditions">ブログなど、ホームページをお持ちの方はURLを入力してください。</p>
+      <%= form.text_field :website_url,
+          class: 'input_form', placeholder: 'https://app.sample.com/',
+          value: (session[:basic_info]["website_url"] if session[:basic_info].present?)
+      %>
+    </td>
+  </tr>
+</table>
+
+  <div class="actions">
+    <%= form.submit '次へ', class: 'submit' %>
+  </div>
+<% end %>

@@ -13,48 +13,24 @@
  *= require_tree .
  *= require_self
  */
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
 
-html, body {
-  width: 100%;
-  height: 100%;
-  /* font-family: "Rokkitt"; */
-  font-size: 16px;
-  font-family: 'Noto Sans JP', sans-serif;
-}
-body {
-  margin-right: auto;
-  margin-left : auto;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-h1 {
-  padding: 0.25em 0.5em;
-  color: #1b2a96;
-  /* background: transparent; */
-  border-left: solid 5px #7db4e6;
-  font-size: 24px;
-}
-h2 {
-
-}
-
-li {
-  list-style: none;
-}
-img {
-  border-radius: 10px;
-}
-img.icon {
-  border-radius: 0px;
-}
-.main-header {
+ .main-header {
   position: fixed;
   width: 100%;
   height: 50px;
   background: #ebf397;
   list-style: none;
   overflow: hidden;
+}
+.main-header .header-left {
+  position: fixed;
+}
+.main-header .header-right {
+  float: right;
+}
+img.current_user_icon {
+  background: #FFF;
+  margin-top: -5px;
 }
 .main-header li {
   width: 140px;
@@ -63,6 +39,17 @@ img.icon {
   float: left;
 }
 .main-header li a {
+  text-decoration: none;
+  color: #1650dc;
+  font-weight: bold;
+}
+.main-footer li {
+  width: 140px;
+  list-style: none;
+  text-align: center;
+  float: left;
+}
+.main-footer li a {
   text-decoration: none;
   color: #1650dc;
   font-weight: bold;
@@ -92,9 +79,8 @@ img.icon {
 }
 .main-footer {
   width: 100%;
-  height: 5%;
-  max-height: 30px;
-  padding: 10px;
+  height: 30px;
+  padding: 5px 10px 20px 10px;
   background: #ebf397;
 }
 .input_form {
@@ -102,8 +88,9 @@ img.icon {
   -moz-border-radius: 3px;
   border-radius: 15px;
   height: 45px;
+  margin: 10px;
   padding-left: 15px;
-  width: 250px;
+  width: 80%;
   font-size: 16px;
 }
 .email_form {
@@ -175,4 +162,12 @@ input.submit {
 
 .btn-square-slant:active:after, .btn-square-slant:active:before {
   content: none;/*ボタンを押すと線が消える*/
+}
+
+.error_messages {
+  margin: -10px 10px 10px 10px;
+}
+.error_messages p {
+    line-height: 10px;
+    color: #f00;
 }

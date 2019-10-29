@@ -15,5 +15,10 @@ module Freelancers
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    config.i18n.default_locale = :ja
+    config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+      %Q(#{html_tag}).html_safe
+    end
   end
 end

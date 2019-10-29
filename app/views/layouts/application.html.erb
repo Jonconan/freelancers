@@ -12,24 +12,46 @@
 
   <body>
     <div class="main-header">
-      <ul>
-        <li><%= link_to "トップページ", :root %></li>
-        <li><%#= link_to "新規登録", :sign_up %></li>
-        <li>ログイン</li>
-      </ul>
+      <div class="header-left">
+        <ul>
+          <li><%= link_to "トップページ", :root %></li>
+        </ul>
+      </div>
+      <div class="header-right">
+        <ul>
+          <li><%= link_to "新規登録", new_user_path %></li>
+          <li>
+            <% if current_user.present? %>
+              <%= link_to "ログアウト", sign_out_path %>
+            <% else %>
+              <%= link_to "ログイン", sign_in_path %>
+            <% end %>
+          </li>
+          <li>
+            <% if current_user.present? %>
+              <%= link_to '/mypage' do %>
+                <%= image_tag '31529208.png', :size =>'32x32', :class => 'current_user_icon' %>
+              <% end %>
+            <% else %>
+              <%= image_tag 'man.png', :size =>'32x32', :class => 'current_user_icon' %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="container">
-      <div class="sidebar">
-        <div class="sidebar__item">
-        　ああああああ
-        </div>
-      </div>
+    　<%= render 'layouts/sidebar' %>
       <main class="main">
         <%= yield %>
       </main>
     </div>
     <div class="main-footer">
-      jonconan
+      <ul>
+        <li>jonconan</li>
+        <li>このサイトについて</li>
+        <li>利用規約</li>
+        <li>お問い合わせ</li>
+      </ul>
     </div>
   </body>
 </html>

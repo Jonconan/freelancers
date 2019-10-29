@@ -67,20 +67,6 @@ ul.freelancer-profile > li {
   box-sizing: border-box;
   padding: 5px;
 }
-table {
-  width: 100%;
-}
-tr {
-  height: 60px;
-}
-th {
-  background: #DDD;
-  width: 40%;
-  max-width: 250px;
-}
-td {
-  background: #c9e2f7;
-}
 .sns-icon {
   border-radius: 0px;
   margin: 0 10px;
@@ -93,6 +79,9 @@ td {
 .sns-id {
   text-align: left;
   padding: 0 10px;
+}
+.sns_id_input_form {
+  max-width: 150px;
 }
 
 
@@ -152,4 +141,7 @@ input[name="tab_item"] {
 .tabs input:checked + .tab_item {
   background-color: #5ab4bd;
   color: #fff;
+}
+td.basic_info_confirm {
+  padding: 0 20px;
 }
