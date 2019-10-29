@@ -65,6 +65,7 @@ class UsersController < ApplicationController
       'index' => 'トップ',
       'new' => '新規ユーザー登録',
       'show' => 'ジョンさんのプロフィール詳細',
+      'create' => 'アカウント作成完了',
       'confirm' => '新規登録確認'
     }
     @page_title = titles[action]
