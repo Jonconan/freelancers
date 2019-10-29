@@ -1,4 +1,8 @@
 class ApplicationController < ActionController::Base
+  GENDER_LISTS = [
+    '選択なし','男性','女性'
+  ]
+
   STATUS_LIST = {
     0 => '稼働中',
     1 => '休職中',

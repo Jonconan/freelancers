@@ -70,6 +70,16 @@
   </tr>
 
   <tr>
+    <th class="create_user"><%= form.label :gender_id, '性別' %><must>*</must></th>
+    <td>
+      <p class="conditions">活動している都道府県をお選びください。</p>
+      <%= form.radio_button :gender_id, 1 %><%= form.label :gender_id, '男性', class: 'gender_label' %>
+      <%= form.radio_button :gender_id, 2 %><%= form.label :gender_id, '女性', class: 'gender_label' %>
+      <%= form.radio_button :gender_id, 0 %><%= form.label :gender_id, '選択なし', class: 'gender_label' %>
+    </td>
+  </tr>
+
+  <tr>
     <th class="create_user"><%= form.label :prefecture_id, '都道府県' %><must>*</must></th>
     <td>
       <p class="conditions">活動している都道府県をお選びください。</p>
