@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   def confirm
     @errors = session[:user_errors]
     if params[:post].present?
+      delete_error_in_session
       session[:basic_info] = params[:post]
       user = User.new(user_params)
       user.valid?
