@@ -21,9 +21,9 @@ class User < ApplicationRecord
             format: { with: VALID_PASSWORD_REGEX, message: 'の形式が間違っています。半角英数字で入力してください。' },
             if: -> { new_record? || changes[:crypted_password] }
 
-  validate :sample
+  validate :match_password_confirm
 
-  def sample
+  def match_password_confirm
     if password != password_confirmation
       errors.add(:password, "一致しません")
     end

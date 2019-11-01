@@ -171,3 +171,9 @@ input.submit {
     line-height: 10px;
     color: #f00;
 }
+.sidebar_item li {
+    padding: 20px;
+}
+.sidebar_item li:hover {
+    background: #FFF;
+}
