@@ -17,6 +17,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+    @prefecture = Prefecture.find(@user.prefecture_id)
     render 'show', layout: 'application'
   end
 

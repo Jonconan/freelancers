@@ -2,7 +2,10 @@ class MypageController < ApplicationController
   before_action :current_user_check
   before_action :set_page_head_title
 
-  def index;end
+  def index
+    @user = User.find(current_user.id)
+    @prefecture = Prefecture.find(@user.prefecture_id)
+  end
 
 
   private
