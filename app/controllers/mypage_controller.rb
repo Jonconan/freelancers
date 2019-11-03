@@ -7,6 +7,8 @@ class MypageController < ApplicationController
     @prefecture = Prefecture.find(@user.prefecture_id)
   end
 
+  def edit
+  end
 
   private
 

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :mypage do
+    get 'edit', on: :collection
   end
 
   get  'sign_in'  => 'user_sessions#sign_in', as: 'sign_in'

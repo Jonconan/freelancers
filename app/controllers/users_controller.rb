@@ -106,31 +106,6 @@ class UsersController < ApplicationController
     set_date_select_list
   end
 
-  def set_date_select_list
-    select_year
-    select_month
-    select_day
-  end
-
-  def select_year
-    year = Time.zone.now
-    year = year.strftime('%Y').to_i
-
-    @years = []
-    ((year - 100)..year).each do |y|
-      @years.push(y)
-    end
-    @years.reverse!
-  end
-
-  def select_month
-    @months = (1..12)
-  end
-
-  def select_day
-    @days = (1..31)
-  end
-
   def user_full_name
     basic_info = session[:basic_info]
     basic_info['last_name'] + ' ' + basic_info['first_name']
