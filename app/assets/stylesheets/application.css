@@ -13,8 +13,17 @@
  *= require_tree .
  *= require_self
  */
+body {
+  background: linear-gradient(150deg, #d4d9ff, #5054ec);
+  background-attachment: fixed;
+}
 
- .main-header {
+.freelancer-card {
+  background: #FFF;
+  box-shadow: 0 2px 6px #1000ff;
+}
+
+.main-header {
   position: fixed;
   width: 100%;
   height: 50px;
@@ -118,13 +127,13 @@ input.submit {
 .btn-square-slant {
   display: inline-block;
   width: 80%;
-  position: relative;
   padding: 1em 1.4em;
   text-decoration: none;
-  background: #668ad8;/*ボタン色*/
+  border-radius: 24px;
+  background: #8b2dd2;/*ボタン色*/
   color: #FFF;
-  border-bottom: solid 5px #36528c;/*ボタン色より暗めに*/
-  border-right: solid 5px #5375bd;/*ボタン色より暗めに*/
+  border-bottom: solid 5px #5b1c8b;/*ボタン色より暗めに*/
+  border-right: solid 5px #431467;/*ボタン色より暗めに*/
 }
 
 .btn-square-slant:before {

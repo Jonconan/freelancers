@@ -19,7 +19,13 @@
       </div>
       <div class="header-right">
         <ul>
-          <li><%= link_to "新規登録", new_user_path %></li>
+          <li>
+            <% if current_user.present? %>
+              <%= link_to "ダッシュボード", '/mypage' %>
+            <% else %>
+              <%= link_to "新規登録", new_user_path %>
+            <% end %>
+          </li>
           <li>
             <% if current_user.present? %>
               <%= link_to "ログアウト", sign_out_path %>

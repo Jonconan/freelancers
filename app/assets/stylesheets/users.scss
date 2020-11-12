@@ -13,7 +13,7 @@ ul.freelancer-list > li {
   width: 30%;
   max-width: 300px;
   text-align: center;
-  border: 5px solid #90b6d6;
+  border: 2px solid #90b6d6;
   border-radius: 20px;
   box-sizing: border-box;
   padding: 5px;
@@ -56,8 +56,8 @@ ul.review-list > li {
 
 /* 個人ページ */
 ul.freelancer-profile {
- display: flex;
- flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 ul.freelancer-profile > li {
   margin: 5px;
@@ -127,6 +127,28 @@ input[name="tab_item"] {
   overflow: hidden;
 }
 
+.tabs {
+  background: #FFF;
+  border: 5px solid #90b6d6;
+  min-height: 300px;
+}
+
+.freelancer-profile {
+  background: #ffffff8a;
+  border-radius: 20px;
+}
+ul.freelancer-button {
+  display: flex;
+  flex-wrap: wrap;
+}
+ul.freelancer-button > li {
+  margin: 5px;
+  width: 48%;
+  text-align: center;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 5px;
+}
 
 /*選択されているタブのコンテンツのみを表示*/
 #all:checked ~ #all_content,
