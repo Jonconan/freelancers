@@ -8,7 +8,7 @@ gem 'sqlite3', group: :development
 # 本番ではpostgressを使用する
 gem 'pg', group: :production
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -65,7 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # ここから好きに導入したもの #
 ##########################
 
-gem 'sorcery', '~> 0.9.1'
+gem 'sorcery', '~> 0.15.0'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 gem 'rails-i18n'
