@@ -1,4 +1,4 @@
-<h1>ジョンさんのプロフィール</h1>
+<h1><%= @user.user_name %>さんのマイページ</h1>
 <ul class="freelancer-profile">
   <li>
     <div class="thumbnail">
@@ -7,53 +7,60 @@
     <ul class="review-list">
       <li><%= image_tag 'friends.png', :class => 'icon', :size =>'16x16' %> 10</li>
       <li><%= image_tag 'good.png', :class => 'icon', :size =>'16x16' %> 20</li>
-      <li><%= image_tag 'comment.png', :class => 'icon', :size =>'16x16' %>  3</li>
+      <li><%= image_tag 'comment.png', :class => 'icon', :size =>'16x16' %> 3</li>
     </ul>
   </li>
   <li>
     <table>
       <tr>
-        <th>ユーザー名</th><td>ジョン</td>
+        <th>ユーザー名</th>
+        <td><%= @user.user_name %></td>
       </tr>
       <tr>
-        <th>活動拠点</th><td>神奈川県 横浜市</td>
+        <th>活動拠点</th>
+        <td><%= @prefecture.name %> <%= @user.area %></td>
       </tr>
       <tr>
-        <th>誕生日</th><td>1991年 10月 20日 (28歳)</td>
+        <th>誕生日</th>
+        <td><%= @user.birthday %> (28歳)</td>
       </tr>
       <tr>
         <th>SNS</th>
         <td>
           <table>
+            <% if @user.twitter_id.present? %>
             <tr style="height:40px;">
               <td class="sns"><%= image_tag 'twitter.png', :class => 'sns-icon', :size =>'20x20' %></td>
-              <td class="sns-id"><%= link_to 'jonconan4869', 'https://twitter.com/'+'jonconan4869', target: :_blank %></td>
+              <td class="sns-id"><%= link_to @user.twitter_id, "https://twitter.com/#{@user.twitter_id}", target: :_blank %></td>
             </tr>
+            <% end %>
+            <% if @user.facebook_id.present? %>
             <tr style="height:40px;">
               <td class="sns"><%= image_tag 'facebook.png', :class => 'sns-icon', :size =>'20x20' %></td>
-              <td class="sns-id"><%= link_to 'jonconan4869', 'https://www.facebook.com/'+'jonconan4869', target: :_blank %></td>
+              <td class="sns-id"><%= link_to @user.facebook_id, "https://www.facebook.com/#{@user.facebook_id}", target: :_blank %></td>
             </tr>
+            <% end %>
+            <% if @user.github_id.present? %>
             <tr style="height:40px;">
               <td class="sns"><%= image_tag 'github.png', :class => 'sns-icon', :size =>'20x20' %></td>
-              <td class="sns-id"><%= link_to 'jonconan', 'https://github.com/'+'jonconan', target: :_blank %></td>
+              <td class="sns-id"><%= link_to @user.github_id, "https://github.com/#{@user.github_id}", target: :_blank %></td>
             </tr>
+            <% end %>
+            <% if @user.youtube_id.present? %>
             <tr style="height:40px;">
               <td class="sns"><%= image_tag 'youtube.png', :class => 'sns-icon', :size =>'20x20' %></td>
-              <td class="sns-id"><%= link_to 'jonconan', 'https://www.youtube.com/channel/'+'jonconan', target: :_blank %></td>
+              <td class="sns-id"><%= link_to @user.youtube_id, "https://www.youtube.com/channel/#{@user.youtube_id}", target: :_blank %></td>
             </tr>
+            <% end %>
           </table>
         </td>
       </tr>
       <tr>
-        <th>ホームページ</th><td><%= link_to 'https://google.com/', 'https://google.com/', target: :_blank %></td>
+        <th>ホームページ</th>
+        <td><%= link_to @user.website_url, @user.website_url, target: :_blank %></td>
       </tr>
     </table>
   </li>
-</ul>
-
-<ul class="freelancer-profile">
-  <li><a href="#" class="btn-square-slant">メッセージを送る</a></li>
-  <li><a href="#" class="btn-square-slant">友達登録をする</a></li>
 </ul>
 
 <div class="profile-contents">
@@ -96,8 +103,3 @@
     </div>
   </div>
 </div>
-
-<ul class="freelancer-profile">
-  <li><a href="#" class="btn-square-slant">メッセージを送る</a></li>
-  <li><a href="#" class="btn-square-slant">友達登録をする</a></li>
-</ul>

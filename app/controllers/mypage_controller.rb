@@ -1,6 +1,8 @@
 class MypageController < ApplicationController
 
   def index
-    render json: "mypage"
+    @user = current_user
+    @prefecture = Prefecture.find(current_user.prefecture_id)
+    # render json: current_user
   end
 end
