@@ -1,67 +1,11 @@
-<h1><%= @user.user_name %>さんのマイページ</h1>
-<ul class="freelancer-profile">
-  <li>
-    <div class="thumbnail">
-      <%= image_tag '31529208.png', :size =>'320x320' %>
-    </div>
-    <ul class="review-list">
-      <li><%= image_tag 'friends.png', :class => 'icon', :size =>'16x16' %> 10</li>
-      <li><%= image_tag 'good.png', :class => 'icon', :size =>'16x16' %> 20</li>
-      <li><%= image_tag 'comment.png', :class => 'icon', :size =>'16x16' %> 3</li>
-    </ul>
-  </li>
-  <li>
-    <table>
-      <tr>
-        <th>ユーザー名</th>
-        <td><%= @user.user_name %></td>
-      </tr>
-      <tr>
-        <th>活動拠点</th>
-        <td><%= @prefecture.name %> <%= @user.area %></td>
-      </tr>
-      <tr>
-        <th>誕生日</th>
-        <td><%= @user.birthday %> (28歳)</td>
-      </tr>
-      <tr>
-        <th>SNS</th>
-        <td>
-          <table>
-            <% if @user.twitter_id.present? %>
-            <tr style="height:40px;">
-              <td class="sns"><%= image_tag 'twitter.png', :class => 'sns-icon', :size =>'20x20' %></td>
-              <td class="sns-id"><%= link_to @user.twitter_id, "https://twitter.com/#{@user.twitter_id}", target: :_blank %></td>
-            </tr>
-            <% end %>
-            <% if @user.facebook_id.present? %>
-            <tr style="height:40px;">
-              <td class="sns"><%= image_tag 'facebook.png', :class => 'sns-icon', :size =>'20x20' %></td>
-              <td class="sns-id"><%= link_to @user.facebook_id, "https://www.facebook.com/#{@user.facebook_id}", target: :_blank %></td>
-            </tr>
-            <% end %>
-            <% if @user.github_id.present? %>
-            <tr style="height:40px;">
-              <td class="sns"><%= image_tag 'github.png', :class => 'sns-icon', :size =>'20x20' %></td>
-              <td class="sns-id"><%= link_to @user.github_id, "https://github.com/#{@user.github_id}", target: :_blank %></td>
-            </tr>
-            <% end %>
-            <% if @user.youtube_id.present? %>
-            <tr style="height:40px;">
-              <td class="sns"><%= image_tag 'youtube.png', :class => 'sns-icon', :size =>'20x20' %></td>
-              <td class="sns-id"><%= link_to @user.youtube_id, "https://www.youtube.com/channel/#{@user.youtube_id}", target: :_blank %></td>
-            </tr>
-            <% end %>
-          </table>
-        </td>
-      </tr>
-      <tr>
-        <th>ホームページ</th>
-        <td><%= link_to @user.website_url, @user.website_url, target: :_blank %></td>
-      </tr>
-    </table>
-  </li>
-</ul>
+<h1>ダッシュボード</h1>
+<div class='notices_wrap'>
+  <div>新着メッセージが 2 件あります。</div>
+  <div>新着フレンド申請が 2 件あります。</div>
+</div>
+
+<h2>表示中のプロフィール</h2>
+<%= render 'common/user_profile' %>
 
 <div class="profile-contents">
   <div class="tabs">

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title><%= @page_title %> | Freelancers</title>
+    <meta http-equiv="content-language" content="ja">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="main-header">
+      <div class="header-left">
+        <ul>
+          <li><%= link_to "トップページへ", :root %></li>
+        </ul>
+      </div>
+      <div class="header-right">
+        <ul>
+          <li><%= link_to "ログアウト", sign_out_path %></li>
+          <li>
+            <%= link_to '/mypage' do %>
+              <%= image_tag '31529208.png', :size =>'32x32', :class => 'current_user_icon' %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+    　<%= render 'layouts/mypage-sidebar' %>
+      <main class="main">
+        <%= yield %>
+      </main>
+    </div>
+    <div class="main-footer">
+      <ul>
+        <li>jonconan</li>
+        <li>このサイトについて</li>
+        <li>利用規約</li>
+        <li>お問い合わせ</li>
+      </ul>
+    </div>
+  </body>
+</html>
