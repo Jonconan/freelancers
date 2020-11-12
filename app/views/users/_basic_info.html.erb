@@ -65,7 +65,7 @@
   <% end %>
 
   <% if basic_info['youtube_id'].present? %>
-    <% youtube_url = "https://www.youtube.com/user/#{basic_info['youtube_id']}" %>
+    <% youtube_url = "https://www.youtube.com/channel/#{basic_info['youtube_id']}" %>
     <tr>
       <th class="create_user"><%= form.label :youtube_id, 'youtube' %></th>
       <td class="basic_info_confirm"><%= link_to youtube_url, youtube_url, target: :_blank %></td>

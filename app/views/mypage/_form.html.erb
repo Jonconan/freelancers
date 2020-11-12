@@ -162,7 +162,7 @@
     <td>
       <p class="conditions">youtubeチャンネルのチャンネル名を入力してください。</p>
       <div style="margin: 0 10px;">
-        https://www.youtube.com/channel/<%= form.text_field :youtube_id,
+        https://www.youtube.com/user/<%= form.text_field :youtube_id,
         class: 'input_form sns_id_input_form', placeholder: '●●●●●●●●',
           value: (session[:basic_info]["youtube_id"] if session[:basic_info].present?)
         %>
