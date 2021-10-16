@@ -5,7 +5,7 @@ ruby '2.6.6'
 gem 'rails', '~> 6.0', '>= 6.0.3.4'
 gem 'sqlite3', group: :development
 gem 'pg', group: :production
-gem 'puma', '~> 4.3'
+gem 'puma', '~> 5.5'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
